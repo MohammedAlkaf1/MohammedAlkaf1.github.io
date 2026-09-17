@@ -1,12 +1,9 @@
-import { useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
-import { Mail, Send, MapPin, ArrowRight } from 'lucide-react'
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { Mail, Send, MapPin, MessageCircle } from 'lucide-react'
 import { GithubIcon, LinkedinIcon } from './icons'
 
 export default function Contact() {
-  const titleRef = useRef(null)
-  const titleInView = useInView(titleRef, { once: true, margin: '-80px' })
-
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
 
@@ -24,92 +21,68 @@ export default function Contact() {
       label: 'GitHub',
       value: 'github.com/MohammedAlkaf1',
       href: 'https://github.com/MohammedAlkaf1',
-      color: 'cyan',
     },
     {
       icon: LinkedinIcon,
       label: 'LinkedIn',
       value: 'Mohammed Alkaf',
       href: 'https://www.linkedin.com/in/mohammed-alkaf-254551288',
-      color: 'purple',
     },
     {
       icon: Mail,
       label: 'Email',
       value: 'm.alkaf2002@gmail.com',
       href: 'mailto:m.alkaf2002@gmail.com',
-      color: 'cyan',
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Available Remotely',
+      value: 'Available remotely',
       href: null,
-      color: 'purple',
     },
   ]
 
+  const fieldClass =
+    'w-full bg-[#18181c] border border-[#232327] rounded-xl px-4 py-3 text-sm text-[#f2f2f0] placeholder-[#8a8a92] focus:outline-none focus:border-[#6ea8fe]/60 transition-colors'
+
   return (
-    <section id="contact" className="py-24 px-6">
+    <section id="contact" className="relative px-6 py-24 md:py-32">
       <div className="max-w-5xl mx-auto">
         <motion.div
-          ref={titleRef}
-          initial={{ opacity: 0, y: 20 }}
-          animate={titleInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="flex flex-col items-center text-center mb-16"
         >
-          <span className="text-cyan-400 text-sm font-mono uppercase tracking-widest">
-            05. Contact
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#e2e8f0] mt-3">
-            Let's Work Together
+          <div className="eyebrow-pill mb-6">
+            <MessageCircle size={12} />
+            Contact
+          </div>
+          <h2 className="section-heading text-3xl md:text-5xl max-w-xl">
+            Let's <span className="emphasis">build something.</span>
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full mx-auto mt-4" />
-          <p className="text-[#94a3b8] text-sm mt-4 max-w-lg mx-auto">
-            I'm currently open to internship opportunities, freelance projects, and collaborations.
-            Feel free to reach out — I'd love to connect.
-          </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-10">
-          {/* Contact info */}
+        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-6">
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={titleInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-4"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.55, delay: 0.1 }}
+            className="card p-2"
           >
-            <h3 className="text-lg font-semibold text-[#e2e8f0] mb-6">Get in Touch</h3>
             {contactLinks.map((link) => {
               const Icon = link.icon
               const content = (
-                <div
-                  className={`glass rounded-xl p-4 flex items-center gap-4 transition-all duration-200 group ${
-                    link.href ? 'hover:border-cyan-400/30 cursor-pointer card-hover' : 'opacity-80'
-                  } border border-transparent`}
-                >
-                  <div
-                    className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                      link.color === 'cyan'
-                        ? 'bg-cyan-400/15 text-cyan-400'
-                        : 'bg-purple-500/15 text-purple-400'
-                    }`}
-                  >
-                    <Icon size={18} />
+                <div className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#18181c] transition-colors group">
+                  <div className="w-9 h-9 rounded-lg border border-[#313136] bg-[#18181c] flex items-center justify-center shrink-0">
+                    <Icon size={15} className="text-[#8a8a92] group-hover:text-[#6ea8fe] transition-colors" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-xs text-[#64748b] uppercase tracking-wide">{link.label}</div>
-                    <div className="text-[#e2e8f0] text-sm font-medium truncate group-hover:text-cyan-400 transition-colors">
-                      {link.value}
-                    </div>
+                    <div className="idx-num">{link.label}</div>
+                    <div className="text-sm text-[#f2f2f0] truncate">{link.value}</div>
                   </div>
-                  {link.href && (
-                    <ArrowRight
-                      size={14}
-                      className="ml-auto text-[#64748b] group-hover:text-cyan-400 group-hover:translate-x-1 transition-all shrink-0"
-                    />
-                  )}
                 </div>
               )
               return link.href ? (
@@ -122,30 +95,28 @@ export default function Contact() {
             })}
           </motion.div>
 
-          {/* Contact form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={titleInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.55, delay: 0.18 }}
+            className="card p-7"
           >
             {submitted ? (
-              <div className="glass rounded-2xl p-10 text-center flex flex-col items-center justify-center h-full min-h-64 border border-emerald-500/20">
-                <div className="w-14 h-14 rounded-full bg-emerald-500/15 flex items-center justify-center mb-4">
-                  <Send size={24} className="text-emerald-400" />
+              <div className="flex flex-col items-center justify-center text-center h-full py-10">
+                <div className="w-12 h-12 rounded-full border border-[#313136] bg-[#18181c] flex items-center justify-center mb-4">
+                  <Send size={18} className="text-[#6ea8fe]" />
                 </div>
-                <h3 className="text-lg font-semibold text-[#e2e8f0] mb-2">Message Sent!</h3>
-                <p className="text-[#94a3b8] text-sm">
+                <h3 className="font-semibold text-lg text-[#f2f2f0] mb-2">Message sent.</h3>
+                <p className="text-[#8a8a92] text-sm">
                   Thanks for reaching out. I'll get back to you as soon as possible.
                 </p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="glass rounded-2xl p-7 space-y-4">
-                <h3 className="text-lg font-semibold text-[#e2e8f0] mb-2">Send a Message</h3>
-                <div className="grid sm:grid-cols-2 gap-4">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-xs text-[#64748b] uppercase tracking-wide mb-1.5">
-                      Name
-                    </label>
+                    <label className="idx-num block mb-2">Name</label>
                     <input
                       type="text"
                       name="name"
@@ -153,13 +124,11 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="Your name"
-                      className="w-full bg-[#1e2534] border border-[#2a3347] rounded-lg px-4 py-2.5 text-sm text-[#e2e8f0] placeholder-[#4a5568] focus:outline-none focus:border-cyan-400/60 transition-colors"
+                      className={fieldClass}
                     />
                   </div>
                   <div>
-                    <label className="block text-xs text-[#64748b] uppercase tracking-wide mb-1.5">
-                      Email
-                    </label>
+                    <label className="idx-num block mb-2">Email</label>
                     <input
                       type="email"
                       name="email"
@@ -167,46 +136,28 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       placeholder="your@email.com"
-                      className="w-full bg-[#1e2534] border border-[#2a3347] rounded-lg px-4 py-2.5 text-sm text-[#e2e8f0] placeholder-[#4a5568] focus:outline-none focus:border-cyan-400/60 transition-colors"
+                      className={fieldClass}
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-xs text-[#64748b] uppercase tracking-wide mb-1.5">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    placeholder="What's this about?"
-                    className="w-full bg-[#1e2534] border border-[#2a3347] rounded-lg px-4 py-2.5 text-sm text-[#e2e8f0] placeholder-[#4a5568] focus:outline-none focus:border-cyan-400/60 transition-colors"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs text-[#64748b] uppercase tracking-wide mb-1.5">
-                    Message
-                  </label>
+                  <label className="idx-num block mb-2">Message</label>
                   <textarea
                     name="message"
                     value={form.message}
                     onChange={handleChange}
                     required
-                    rows={5}
+                    rows={4}
                     placeholder="Tell me about the opportunity or project..."
-                    className="w-full bg-[#1e2534] border border-[#2a3347] rounded-lg px-4 py-2.5 text-sm text-[#e2e8f0] placeholder-[#4a5568] focus:outline-none focus:border-cyan-400/60 transition-colors resize-none"
+                    className={`${fieldClass} resize-none`}
                   />
                 </div>
-                <button
-                  type="submit"
-                  className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-semibold text-sm hover:opacity-90 hover:scale-[1.02] transition-all duration-200 glow-cyan"
-                >
+                <button type="submit" className="btn-pill-primary w-full">
                   <Send size={15} />
-                  Send Message
+                  Send message
                 </button>
-                <p className="text-xs text-[#4a5568] text-center">
-                  To enable email delivery, connect a service like{' '}
-                  <span className="text-[#64748b]">EmailJS</span> or{' '}
-                  <span className="text-[#64748b]">Formspree</span>.
+                <p className="text-xs text-[#8a8a92] text-center">
+                  To enable email delivery, connect a service like EmailJS or Formspree.
                 </p>
               </form>
             )}

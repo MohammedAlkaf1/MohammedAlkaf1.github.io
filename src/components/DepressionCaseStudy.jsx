@@ -87,7 +87,7 @@ function SectionTitle({ icon: Icon, label, color = 'text-teal-400' }) {
     <div className={`flex items-center gap-2 mb-6 ${color}`}>
       <Icon size={17} />
       <span className="text-xs font-mono uppercase tracking-widest">{label}</span>
-      <div className="flex-1 h-px bg-[#2a3347] ml-2" />
+      <div className="flex-1 h-px bg-[#232327] ml-2" />
     </div>
   )
 }
@@ -97,8 +97,8 @@ function ScreenshotCard({ shot, index }) {
   const [loaded, setLoaded] = useState(false)
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-20px' }} transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="group rounded-xl overflow-hidden border border-[#2a3347] hover:border-teal-500/40 transition-all duration-300">
-      <div className="aspect-video relative overflow-hidden bg-[#0a0f1e]">
+      className="group rounded-none overflow-hidden border border-[#232327] hover:border-teal-500/40 transition-all duration-300">
+      <div className="aspect-video relative overflow-hidden bg-[#18181c]">
         {!imgError ? (
           <>
             <img src={shot.src} alt={shot.label} onLoad={() => setLoaded(true)} onError={() => setImgError(true)} className={`w-full h-full object-cover object-top transition-all duration-500 group-hover:scale-105 ${loaded ? 'opacity-100' : 'opacity-0'}`} />
@@ -109,7 +109,7 @@ function ScreenshotCard({ shot, index }) {
         )}
         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
       </div>
-      <div className="p-3 bg-[#161b27]"><p className="text-sm font-semibold text-[#e2e8f0]">{shot.label}</p><p className="text-xs text-[#94a3b8] mt-0.5 leading-relaxed">{shot.desc}</p></div>
+      <div className="p-3 bg-[#0a0a0d]"><p className="text-sm font-semibold text-[#f2f2f0]">{shot.label}</p><p className="text-xs text-[#c7c7cc] mt-0.5 leading-relaxed">{shot.desc}</p></div>
     </motion.div>
   )
 }
@@ -125,31 +125,31 @@ export default function DepressionCaseStudy({ isOpen, onClose }) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} className="fixed inset-0 z-50 bg-[#080c15]/97 backdrop-blur-md overflow-y-auto">
-          <div className="sticky top-0 z-10 bg-[#0d1117]/90 backdrop-blur-sm border-b border-[#2a3347] px-6 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-2 text-sm text-[#94a3b8]">
-              <button onClick={onClose} className="hover:text-[#e2e8f0] transition-colors duration-200">Projects</button>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} className="fixed inset-0 z-50 bg-[#0a0a0d]/97 backdrop-blur-md overflow-y-auto">
+          <div className="sticky top-0 z-10 bg-[#0a0a0d]/90 backdrop-blur-sm border-b border-[#232327] px-6 py-3 flex items-center justify-between">
+            <div className="flex items-center gap-2 text-sm text-[#c7c7cc]">
+              <button onClick={onClose} className="hover:text-[#f2f2f0] transition-colors duration-200">Projects</button>
               <ChevronRight size={14} />
               <span className="text-teal-300 font-medium">Depression Detector</span>
-              <span className="hidden sm:inline text-[#2a3347] mx-1">—</span>
+              <span className="hidden sm:inline text-[#232327] mx-1">—</span>
               <span className="hidden sm:inline">Case Study</span>
             </div>
-            <button onClick={onClose} className="p-2 rounded-lg border border-[#2a3347] text-[#94a3b8] hover:text-[#e2e8f0] hover:border-[#4a5568] transition-all duration-200" aria-label="Close case study"><X size={16} /></button>
+            <button onClick={onClose} className="p-2 rounded-none border border-[#232327] text-[#c7c7cc] hover:text-[#f2f2f0] hover:border-[#313136] transition-all duration-200" aria-label="Close case study"><X size={16} /></button>
           </div>
 
           <div className="max-w-5xl mx-auto px-6 py-12 pb-28">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="mb-14">
-              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-teal-500/10 to-cyan-600/10 border border-teal-500/20 p-8 md:p-12">
+              <div className="relative rounded-none overflow-hidden bg-gradient-to-br from-teal-500/10 to-cyan-600/10 border border-teal-500/20 p-8 md:p-12">
                 <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #14b8a6 1px, transparent 1px), radial-gradient(circle at 80% 20%, #06b6d4 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                 <div className="relative z-10">
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-teal-400/15 border border-teal-400/30 text-teal-300 mb-5">Machine Learning Applications · BCI3333 · UMPSA · 2026</span>
-                  <div className="flex items-center gap-4 mb-5"><span className="text-5xl select-none">🧠</span><h1 className="text-3xl md:text-4xl font-bold text-[#e2e8f0]">Student Depression Detector</h1></div>
-                  <p className="text-[#94a3b8] text-base md:text-lg leading-relaxed max-w-2xl mb-7">
-                    A <span className="text-[#e2e8f0] font-medium">Smart Campus mental-health early-detection</span> tool. A Logistic Regression
+                  <div className="flex items-center gap-4 mb-5"><span className="text-5xl select-none">🧠</span><h1 className="text-3xl md:text-4xl font-bold text-[#f2f2f0]">Student Depression Detector</h1></div>
+                  <p className="text-[#c7c7cc] text-base md:text-lg leading-relaxed max-w-2xl mb-7">
+                    A <span className="text-[#f2f2f0] font-medium">Smart Campus mental-health early-detection</span> tool. A Logistic Regression
                     model — trained on 27,900+ student records — predicts a student&apos;s depression risk from academic and lifestyle factors,
                     served through an interactive Streamlit web app.
                   </p>
-                  <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-600 text-white text-sm font-medium hover:opacity-90 transition-opacity duration-200">
+                  <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-5 py-2.5 rounded-none bg-gradient-to-r from-teal-500 to-cyan-600 text-white text-sm font-medium hover:opacity-90 transition-opacity duration-200">
                     <ExternalLink size={15} /> Try the live app
                   </a>
                 </div>
@@ -161,19 +161,19 @@ export default function DepressionCaseStudy({ isOpen, onClose }) {
                   { value: '27,901', label: 'Records', icon: '🗂️' },
                   { value: 'Streamlit', label: 'Live App', icon: '🚀' },
                 ].map((stat) => (
-                  <div key={stat.label} className="glass rounded-xl p-4 text-center border border-[#2a3347]"><div className="text-2xl mb-1 select-none">{stat.icon}</div><div className="text-xl font-bold text-[#e2e8f0]">{stat.value}</div><div className="text-xs text-[#94a3b8]">{stat.label}</div></div>
+                  <div key={stat.label} className="glass rounded-none p-4 text-center border border-[#232327]"><div className="text-2xl mb-1 select-none">{stat.icon}</div><div className="text-xl font-bold text-[#f2f2f0]">{stat.value}</div><div className="text-xs text-[#c7c7cc]">{stat.label}</div></div>
                 ))}
               </div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Target} label="Problem Statement" color="text-red-400" />
-              <div className="glass rounded-2xl p-7 border border-[#2a3347]">
-                <p className="text-[#94a3b8] leading-relaxed">
+              <div className="glass rounded-none p-7 border border-[#232327]">
+                <p className="text-[#c7c7cc] leading-relaxed">
                   University students face academic pressure, financial stress, poor sleep and isolation — yet campuses have
-                  <span className="text-[#e2e8f0] font-medium"> limited counselling capacity</span>, so at-risk students are often only identified
+                  <span className="text-[#f2f2f0] font-medium"> limited counselling capacity</span>, so at-risk students are often only identified
                   once a situation becomes critical. This project applies machine learning on a smart campus to
-                  <span className="text-[#e2e8f0] font-medium"> flag depression risk early</span> from academic and lifestyle signals, giving
+                  <span className="text-[#f2f2f0] font-medium"> flag depression risk early</span> from academic and lifestyle signals, giving
                   counsellors and management a chance to intervene sooner.
                 </p>
               </div>
@@ -183,7 +183,7 @@ export default function DepressionCaseStudy({ isOpen, onClose }) {
               <SectionTitle icon={Target} label="Project Objectives" color="text-teal-400" />
               <div className="grid sm:grid-cols-2 gap-3">
                 {OBJECTIVES.map((obj, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.07 }} className="flex items-start gap-3 glass rounded-xl p-4 border border-[#2a3347]"><CheckCircle2 size={15} className="text-teal-400 mt-0.5 shrink-0" /><p className="text-sm text-[#94a3b8] leading-relaxed">{obj}</p></motion.div>
+                  <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.07 }} className="flex items-start gap-3 glass rounded-none p-4 border border-[#232327]"><CheckCircle2 size={15} className="text-teal-400 mt-0.5 shrink-0" /><p className="text-sm text-[#c7c7cc] leading-relaxed">{obj}</p></motion.div>
                 ))}
               </div>
             </motion.div>
@@ -194,11 +194,11 @@ export default function DepressionCaseStudy({ isOpen, onClose }) {
                 {PIPELINE.map((q, i) => {
                   const Icon = q.icon
                   return (
-                    <motion.div key={q.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="glass rounded-2xl overflow-hidden border border-[#2a3347]">
+                    <motion.div key={q.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="glass rounded-none overflow-hidden border border-[#232327]">
                       <div className={`h-1 bg-gradient-to-r ${q.bar}`} />
                       <div className="p-6">
-                        <div className="flex items-center gap-3 mb-3"><div className={`p-2 rounded-lg bg-[#1e2534] ${q.color}`}><Icon size={17} /></div><h3 className="font-bold text-[#e2e8f0] text-sm">{q.title}</h3></div>
-                        <ul className="space-y-2 border-t border-[#2a3347] pt-3">{q.items.map((t) => (<li key={t} className="flex items-start gap-2"><ChevronRight size={12} className={`${q.color} mt-0.5 shrink-0`} /><span className="text-xs text-[#94a3b8] leading-relaxed">{t}</span></li>))}</ul>
+                        <div className="flex items-center gap-3 mb-3"><div className={`p-2 rounded-none bg-[#18181c] ${q.color}`}><Icon size={17} /></div><h3 className="font-bold text-[#f2f2f0] text-sm">{q.title}</h3></div>
+                        <ul className="space-y-2 border-t border-[#232327] pt-3">{q.items.map((t) => (<li key={t} className="flex items-start gap-2"><ChevronRight size={12} className={`${q.color} mt-0.5 shrink-0`} /><span className="text-xs text-[#c7c7cc] leading-relaxed">{t}</span></li>))}</ul>
                       </div>
                     </motion.div>
                   )
@@ -208,28 +208,28 @@ export default function DepressionCaseStudy({ isOpen, onClose }) {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={BarChart3} label="Model Comparison" color="text-cyan-400" />
-              <div className="glass rounded-2xl overflow-hidden border border-[#2a3347]">
-                <div className="grid grid-cols-3 text-xs font-mono uppercase tracking-wider text-[#64748b] border-b border-[#2a3347] px-6 py-3">
+              <div className="glass rounded-none overflow-hidden border border-[#232327]">
+                <div className="grid grid-cols-3 text-xs font-mono uppercase tracking-wider text-[#8a8a92] border-b border-[#232327] px-6 py-3">
                   <span>Metric</span><span className="text-center text-teal-300">Logistic Regression</span><span className="text-center">Random Forest</span>
                 </div>
                 {MODELS.map((m, i) => (
-                  <div key={m.metric} className={`grid grid-cols-3 items-center px-6 py-3.5 text-sm ${i < MODELS.length - 1 ? 'border-b border-[#1e2534]' : ''}`}>
-                    <span className="text-[#94a3b8]">{m.metric}</span>
+                  <div key={m.metric} className={`grid grid-cols-3 items-center px-6 py-3.5 text-sm ${i < MODELS.length - 1 ? 'border-b border-[#18181c]' : ''}`}>
+                    <span className="text-[#c7c7cc]">{m.metric}</span>
                     <span className="text-center font-semibold text-teal-300 flex items-center justify-center gap-1.5">{m.lr}{m.win && <CheckCircle2 size={12} className="text-teal-400" />}</span>
-                    <span className="text-center text-[#94a3b8]">{m.rf}</span>
+                    <span className="text-center text-[#c7c7cc]">{m.rf}</span>
                   </div>
                 ))}
               </div>
-              <p className="text-xs text-[#4a5568] mt-3">Logistic Regression won on every metric — chosen for deployment for its accuracy, interpretability and small footprint.</p>
+              <p className="text-xs text-[#313136] mt-3">Logistic Regression won on every metric — chosen for deployment for its accuracy, interpretability and small footprint.</p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Star} label="Strongest Predictors" color="text-emerald-400" />
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                 {PREDICTORS.map((p, i) => (
-                  <motion.div key={p.name} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.06 }} className="glass rounded-xl p-4 border border-[#2a3347] flex items-center gap-3">
+                  <motion.div key={p.name} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.06 }} className="glass rounded-none p-4 border border-[#232327] flex items-center gap-3">
                     <span className="text-2xl select-none">{p.icon}</span>
-                    <div className="flex-1"><p className="text-sm text-[#e2e8f0] font-medium leading-tight">{p.name}</p><p className="text-xs text-[#64748b] font-mono mt-0.5">importance {p.weight}</p></div>
+                    <div className="flex-1"><p className="text-sm text-[#f2f2f0] font-medium leading-tight">{p.name}</p><p className="text-xs text-[#8a8a92] font-mono mt-0.5">importance {p.weight}</p></div>
                   </motion.div>
                 ))}
               </div>
@@ -237,20 +237,20 @@ export default function DepressionCaseStudy({ isOpen, onClose }) {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Code2} label="Technologies Used" color="text-cyan-400" />
-              <div className="glass rounded-2xl p-6 border border-[#2a3347]"><div className="flex flex-wrap gap-3">{TECH_STACK.map((t) => (<span key={t.name} className={`px-4 py-2 rounded-xl text-sm font-medium border ${t.badge}`}>{t.name}</span>))}</div></div>
+              <div className="glass rounded-none p-6 border border-[#232327]"><div className="flex flex-wrap gap-3">{TECH_STACK.map((t) => (<span key={t.name} className={`px-4 py-2 rounded-none text-sm font-medium border ${t.badge}`}>{t.name}</span>))}</div></div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Image} label="Screenshots" color="text-teal-400" />
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">{SCREENSHOTS.map((shot, i) => (<ScreenshotCard key={shot.label} shot={shot} index={i} />))}</div>
-              <p className="text-xs text-[#4a5568] text-center mt-4 font-mono">App screens & analysis figures · BCI3333 Final Project</p>
+              <p className="text-xs text-[#313136] text-center mt-4 font-mono">App screens & analysis figures · BCI3333 Final Project</p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Users} label="My Role" color="text-teal-400" />
-              <div className="glass rounded-2xl p-7 border border-teal-500/20">
-                <div className="flex flex-wrap items-start gap-4 mb-5"><span className="text-3xl select-none">👨‍🔬</span><div><h3 className="font-bold text-[#e2e8f0] text-base">Solo ML Project</h3><p className="text-xs text-[#94a3b8] mt-0.5">CB22162 · Machine Learning Applications · UMPSA</p></div></div>
-                <div className="grid sm:grid-cols-2 gap-3">{MY_ROLE_SUBS.map((item) => (<div key={item} className="flex items-start gap-2"><CheckCircle2 size={13} className="text-teal-400 mt-0.5 shrink-0" /><span className="text-xs text-[#94a3b8] leading-relaxed">{item}</span></div>))}</div>
+              <div className="glass rounded-none p-7 border border-teal-500/20">
+                <div className="flex flex-wrap items-start gap-4 mb-5"><span className="text-3xl select-none">👨‍🔬</span><div><h3 className="font-bold text-[#f2f2f0] text-base">Solo ML Project</h3><p className="text-xs text-[#c7c7cc] mt-0.5">CB22162 · Machine Learning Applications · UMPSA</p></div></div>
+                <div className="grid sm:grid-cols-2 gap-3">{MY_ROLE_SUBS.map((item) => (<div key={item} className="flex items-start gap-2"><CheckCircle2 size={13} className="text-teal-400 mt-0.5 shrink-0" /><span className="text-xs text-[#c7c7cc] leading-relaxed">{item}</span></div>))}</div>
               </div>
             </motion.div>
 
@@ -260,8 +260,8 @@ export default function DepressionCaseStudy({ isOpen, onClose }) {
                 {CHALLENGES.map((item, i) => {
                   const Icon = item.icon
                   return (
-                    <motion.div key={item.title} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }} className="glass rounded-xl p-6 border border-[#2a3347]">
-                      <div className="flex items-start gap-4"><div className={`p-2 rounded-lg bg-[#1e2534] ${item.color} shrink-0 mt-0.5`}><Icon size={15} /></div><div><h4 className="font-semibold text-[#e2e8f0] mb-2 text-sm">{item.title}</h4><p className="text-xs text-[#94a3b8] leading-relaxed">{item.solution}</p></div></div>
+                    <motion.div key={item.title} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }} className="glass rounded-none p-6 border border-[#232327]">
+                      <div className="flex items-start gap-4"><div className={`p-2 rounded-none bg-[#18181c] ${item.color} shrink-0 mt-0.5`}><Icon size={15} /></div><div><h4 className="font-semibold text-[#f2f2f0] mb-2 text-sm">{item.title}</h4><p className="text-xs text-[#c7c7cc] leading-relaxed">{item.solution}</p></div></div>
                     </motion.div>
                   )
                 })}
@@ -270,16 +270,16 @@ export default function DepressionCaseStudy({ isOpen, onClose }) {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Award} label="Skills Demonstrated" color="text-emerald-400" />
-              <div className="flex flex-wrap gap-2.5">{SKILLS.map((skill, i) => (<motion.span key={skill} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.25, delay: i * 0.04 }} className="px-3.5 py-1.5 rounded-lg text-sm font-medium bg-[#161b27] border border-[#2a3347] text-[#94a3b8] hover:text-teal-300 hover:border-teal-400/30 transition-colors duration-200 cursor-default">{skill}</motion.span>))}</div>
+              <div className="flex flex-wrap gap-2.5">{SKILLS.map((skill, i) => (<motion.span key={skill} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.25, delay: i * 0.04 }} className="px-3.5 py-1.5 rounded-none text-sm font-medium bg-[#0a0a0d] border border-[#232327] text-[#c7c7cc] hover:text-teal-300 hover:border-teal-400/30 transition-colors duration-200 cursor-default">{skill}</motion.span>))}</div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <div className="glass rounded-2xl p-8 border border-teal-500/20 text-center">
-                <p className="text-sm text-[#94a3b8] mb-2">Built for educational purposes — not a clinical diagnosis.</p>
-                <p className="text-xs text-[#64748b] mb-5">The app is live on Streamlit Community Cloud and the code is on GitHub.</p>
+              <div className="glass rounded-none p-8 border border-teal-500/20 text-center">
+                <p className="text-sm text-[#c7c7cc] mb-2">Built for educational purposes — not a clinical diagnosis.</p>
+                <p className="text-xs text-[#8a8a92] mb-5">The app is live on Streamlit Community Cloud and the code is on GitHub.</p>
                 <div className="flex flex-wrap gap-4 justify-center">
-                  <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium text-sm hover:opacity-90 transition-opacity duration-200"><ExternalLink size={15} /> Live Demo</a>
-                  <a href="https://github.com/MohammedAlkaf1/student-depression-detection" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#2a3347] text-[#94a3b8] font-medium text-sm hover:text-[#e2e8f0] hover:border-[#4a5568] transition-all duration-200"><Code2 size={15} /> View Code</a>
+                  <a href={DEMO_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-none bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium text-sm hover:opacity-90 transition-opacity duration-200"><ExternalLink size={15} /> Live Demo</a>
+                  <a href="https://github.com/MohammedAlkaf1/student-depression-detection" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-none border border-[#232327] text-[#c7c7cc] font-medium text-sm hover:text-[#f2f2f0] hover:border-[#313136] transition-all duration-200"><Code2 size={15} /> View Code</a>
                 </div>
               </div>
             </motion.div>

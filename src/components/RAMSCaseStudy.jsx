@@ -88,7 +88,7 @@ function SectionTitle({ icon: Icon, label, color = 'text-violet-400' }) {
     <div className={`flex items-center gap-2 mb-6 ${color}`}>
       <Icon size={17} />
       <span className="text-xs font-mono uppercase tracking-widest">{label}</span>
-      <div className="flex-1 h-px bg-[#2a3347] ml-2" />
+      <div className="flex-1 h-px bg-[#232327] ml-2" />
     </div>
   )
 }
@@ -102,9 +102,9 @@ function ScreenshotCard({ shot, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-20px' }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="group rounded-xl overflow-hidden border border-[#2a3347] hover:border-violet-500/40 transition-all duration-300"
+      className="group rounded-none overflow-hidden border border-[#232327] hover:border-violet-500/40 transition-all duration-300"
     >
-      <div className="aspect-video relative overflow-hidden bg-[#0a0f1e]">
+      <div className="aspect-video relative overflow-hidden bg-[#18181c]">
         {!imgError ? (
           <>
             <img src={shot.src} alt={shot.label} onLoad={() => setLoaded(true)} onError={() => setImgError(true)}
@@ -119,9 +119,9 @@ function ScreenshotCard({ shot, index }) {
         )}
         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
       </div>
-      <div className="p-3 bg-[#161b27]">
-        <p className="text-sm font-semibold text-[#e2e8f0]">{shot.label}</p>
-        <p className="text-xs text-[#94a3b8] mt-0.5 leading-relaxed">{shot.desc}</p>
+      <div className="p-3 bg-[#0a0a0d]">
+        <p className="text-sm font-semibold text-[#f2f2f0]">{shot.label}</p>
+        <p className="text-xs text-[#c7c7cc] mt-0.5 leading-relaxed">{shot.desc}</p>
       </div>
     </motion.div>
   )
@@ -142,21 +142,21 @@ export default function RAMSCaseStudy({ isOpen, onClose }) {
     <AnimatePresence>
       {isOpen && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-50 bg-[#080c15]/97 backdrop-blur-md overflow-y-auto">
-          <div className="sticky top-0 z-10 bg-[#0d1117]/90 backdrop-blur-sm border-b border-[#2a3347] px-6 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-2 text-sm text-[#94a3b8]">
-              <button onClick={onClose} className="hover:text-[#e2e8f0] transition-colors duration-200">Projects</button>
+          className="fixed inset-0 z-50 bg-[#0a0a0d]/97 backdrop-blur-md overflow-y-auto">
+          <div className="sticky top-0 z-10 bg-[#0a0a0d]/90 backdrop-blur-sm border-b border-[#232327] px-6 py-3 flex items-center justify-between">
+            <div className="flex items-center gap-2 text-sm text-[#c7c7cc]">
+              <button onClick={onClose} className="hover:text-[#f2f2f0] transition-colors duration-200">Projects</button>
               <ChevronRight size={14} />
               <span className="text-fuchsia-300 font-medium">RAMS</span>
-              <span className="hidden sm:inline text-[#2a3347] mx-1">—</span>
+              <span className="hidden sm:inline text-[#232327] mx-1">—</span>
               <span className="hidden sm:inline">Final Year Project</span>
             </div>
-            <button onClick={onClose} className="p-2 rounded-lg border border-[#2a3347] text-[#94a3b8] hover:text-[#e2e8f0] hover:border-[#4a5568] transition-all duration-200" aria-label="Close case study"><X size={16} /></button>
+            <button onClick={onClose} className="p-2 rounded-none border border-[#232327] text-[#c7c7cc] hover:text-[#f2f2f0] hover:border-[#313136] transition-all duration-200" aria-label="Close case study"><X size={16} /></button>
           </div>
 
           <div className="max-w-5xl mx-auto px-6 py-12 pb-28">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="mb-14">
-              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-violet-500/10 to-fuchsia-600/10 border border-violet-500/20 p-8 md:p-12">
+              <div className="relative rounded-none overflow-hidden bg-gradient-to-br from-violet-500/10 to-fuchsia-600/10 border border-violet-500/20 p-8 md:p-12">
                 <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #8b5cf6 1px, transparent 1px), radial-gradient(circle at 80% 20%, #d946ef 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                 <div className="relative z-10">
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-violet-400/15 border border-violet-400/30 text-violet-300 mb-5">
@@ -164,14 +164,14 @@ export default function RAMSCaseStudy({ isOpen, onClose }) {
                   </span>
                   <div className="flex items-center gap-4 mb-5">
                     <span className="text-5xl select-none">📄</span>
-                    <h1 className="text-3xl md:text-4xl font-bold text-[#e2e8f0]">RAMS</h1>
+                    <h1 className="text-3xl md:text-4xl font-bold text-[#f2f2f0]">RAMS</h1>
                   </div>
-                  <p className="text-[#94a3b8] text-base md:text-lg leading-relaxed max-w-2xl mb-7">
-                    An <span className="text-[#e2e8f0] font-medium">AI-powered Resume Analysis &amp; Skill Matching System</span> that
+                  <p className="text-[#c7c7cc] text-base md:text-lg leading-relaxed max-w-2xl mb-7">
+                    An <span className="text-[#f2f2f0] font-medium">AI-powered Resume Analysis &amp; Skill Matching System</span> that
                     scores a resume against a job description using hybrid NLP — skill matching, semantic similarity and TF-IDF — then
                     explains the gap with matched, partial and missing skills, AI suggestions, job discovery and an ATS resume builder.
                   </p>
-                  <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[#2a3347] bg-[#0d1117]/40 text-[#94a3b8] text-sm font-medium">
+                  <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-none border border-[#232327] bg-[#0a0a0d]/40 text-[#c7c7cc] text-sm font-medium">
                     <Lock size={15} /> Restricted academic thesis · public source repo
                   </span>
                 </div>
@@ -183,10 +183,10 @@ export default function RAMSCaseStudy({ isOpen, onClose }) {
                   { value: 'Next.js', label: '+ FastAPI', icon: '⚙️' },
                   { value: 'PSM', label: 'Final Year', icon: '🎓' },
                 ].map((stat) => (
-                  <div key={stat.label} className="glass rounded-xl p-4 text-center border border-[#2a3347]">
+                  <div key={stat.label} className="glass rounded-none p-4 text-center border border-[#232327]">
                     <div className="text-2xl mb-1 select-none">{stat.icon}</div>
-                    <div className="text-xl font-bold text-[#e2e8f0]">{stat.value}</div>
-                    <div className="text-xs text-[#94a3b8]">{stat.label}</div>
+                    <div className="text-xl font-bold text-[#f2f2f0]">{stat.value}</div>
+                    <div className="text-xs text-[#c7c7cc]">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -194,11 +194,11 @@ export default function RAMSCaseStudy({ isOpen, onClose }) {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Target} label="Problem Statement" color="text-red-400" />
-              <div className="glass rounded-2xl p-7 border border-[#2a3347]">
-                <p className="text-[#94a3b8] leading-relaxed">
-                  Recruiters skim each resume in seconds, and the <span className="text-[#e2e8f0] font-medium">Applicant Tracking Systems</span> that
+              <div className="glass rounded-none p-7 border border-[#232327]">
+                <p className="text-[#c7c7cc] leading-relaxed">
+                  Recruiters skim each resume in seconds, and the <span className="text-[#f2f2f0] font-medium">Applicant Tracking Systems</span> that
                   filter them lean on rigid keyword matching — so a strong candidate using different wording gets dropped, and the scoring is a
-                  black box. Job seekers, especially students, get <span className="text-[#e2e8f0] font-medium">no transparent feedback</span> on
+                  black box. Job seekers, especially students, get <span className="text-[#f2f2f0] font-medium">no transparent feedback</span> on
                   whether their resume fits a role or what to improve. RAMS replaces that with a single, explainable platform: an interpretable
                   Match Score, clear skill-gap feedback, job discovery and an ATS-aware resume builder.
                 </p>
@@ -209,9 +209,9 @@ export default function RAMSCaseStudy({ isOpen, onClose }) {
               <SectionTitle icon={Target} label="Project Objectives" color="text-violet-400" />
               <div className="grid sm:grid-cols-2 gap-3">
                 {OBJECTIVES.map((obj, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.07 }} className="flex items-start gap-3 glass rounded-xl p-4 border border-[#2a3347]">
+                  <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.07 }} className="flex items-start gap-3 glass rounded-none p-4 border border-[#232327]">
                     <CheckCircle2 size={15} className="text-violet-400 mt-0.5 shrink-0" />
-                    <p className="text-sm text-[#94a3b8] leading-relaxed">{obj}</p>
+                    <p className="text-sm text-[#c7c7cc] leading-relaxed">{obj}</p>
                   </motion.div>
                 ))}
               </div>
@@ -221,13 +221,13 @@ export default function RAMSCaseStudy({ isOpen, onClose }) {
               <SectionTitle icon={Users} label="Who It's For" color="text-fuchsia-400" />
               <div className="grid md:grid-cols-3 gap-5">
                 {USERS.map((user, i) => (
-                  <motion.div key={user.role} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="glass rounded-2xl overflow-hidden border border-[#2a3347]">
+                  <motion.div key={user.role} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="glass rounded-none overflow-hidden border border-[#232327]">
                     <div className={`h-1.5 bg-gradient-to-r ${user.gradient}`} />
                     <div className="p-6">
                       <div className="text-3xl mb-3 select-none">{user.icon}</div>
-                      <h3 className="font-bold text-[#e2e8f0] mb-4 text-sm">{user.role}</h3>
+                      <h3 className="font-bold text-[#f2f2f0] mb-4 text-sm">{user.role}</h3>
                       <ul className="space-y-2">
-                        {user.actions.map((a) => (<li key={a} className="flex items-start gap-2"><ArrowRight size={11} className="text-[#4a5568] mt-1 shrink-0" /><span className="text-xs text-[#94a3b8] leading-relaxed">{a}</span></li>))}
+                        {user.actions.map((a) => (<li key={a} className="flex items-start gap-2"><ArrowRight size={11} className="text-[#313136] mt-1 shrink-0" /><span className="text-xs text-[#c7c7cc] leading-relaxed">{a}</span></li>))}
                       </ul>
                     </div>
                   </motion.div>
@@ -241,18 +241,18 @@ export default function RAMSCaseStudy({ isOpen, onClose }) {
                 {MODULES.map((mod, i) => {
                   const Icon = mod.icon
                   return (
-                    <motion.div key={mod.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }} className="glass rounded-2xl overflow-hidden border border-[#2a3347]">
+                    <motion.div key={mod.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }} className="glass rounded-none overflow-hidden border border-[#232327]">
                       <div className={`h-1 bg-gradient-to-r ${mod.barColor}`} />
                       <div className="p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-3">
-                            <div className={`p-2 rounded-lg bg-[#1e2534] ${mod.iconColor}`}><Icon size={17} /></div>
-                            <h3 className="font-bold text-[#e2e8f0] text-sm">{mod.title}</h3>
+                            <div className={`p-2 rounded-none bg-[#18181c] ${mod.iconColor}`}><Icon size={17} /></div>
+                            <h3 className="font-bold text-[#f2f2f0] text-sm">{mod.title}</h3>
                           </div>
                           <span className={`text-xs font-medium px-2 py-0.5 rounded-full border whitespace-nowrap ml-3 ${mod.tagColor}`}>{mod.tag}</span>
                         </div>
                         <ul className="space-y-2">
-                          {mod.features.map((f) => (<li key={f} className="flex items-start gap-2"><ChevronRight size={12} className={`${mod.iconColor} mt-0.5 shrink-0`} /><span className="text-xs text-[#94a3b8] leading-relaxed">{f}</span></li>))}
+                          {mod.features.map((f) => (<li key={f} className="flex items-start gap-2"><ChevronRight size={12} className={`${mod.iconColor} mt-0.5 shrink-0`} /><span className="text-xs text-[#c7c7cc] leading-relaxed">{f}</span></li>))}
                         </ul>
                       </div>
                     </motion.div>
@@ -263,20 +263,20 @@ export default function RAMSCaseStudy({ isOpen, onClose }) {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Gauge} label="How the Match Score Works" color="text-fuchsia-400" />
-              <p className="text-sm text-[#94a3b8] leading-relaxed mb-5 max-w-3xl">
-                The final score is a <span className="text-[#e2e8f0] font-medium">weighted fusion of three signals</span> rather than a single
+              <p className="text-sm text-[#c7c7cc] leading-relaxed mb-5 max-w-3xl">
+                The final score is a <span className="text-[#f2f2f0] font-medium">weighted fusion of three signals</span> rather than a single
                 similarity measure, so it balances explicit skills, contextual meaning and keyword overlap into one 0–100 result.
               </p>
               <div className="grid md:grid-cols-3 gap-5">
                 {SCORING.map((q, i) => {
                   const Icon = q.icon
                   return (
-                    <motion.div key={q.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="glass rounded-2xl overflow-hidden border border-[#2a3347]">
+                    <motion.div key={q.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="glass rounded-none overflow-hidden border border-[#232327]">
                       <div className={`h-1 bg-gradient-to-r ${q.bar}`} />
                       <div className="p-6">
-                        <div className="flex items-center gap-3 mb-3"><div className={`p-2 rounded-lg bg-[#1e2534] ${q.color}`}><Icon size={17} /></div><h3 className="font-bold text-[#e2e8f0] text-sm">{q.title}</h3></div>
-                        <ul className="space-y-2 border-t border-[#2a3347] pt-3">
-                          {q.items.map((t) => (<li key={t} className="flex items-start gap-2"><ChevronRight size={12} className={`${q.color} mt-0.5 shrink-0`} /><span className="text-xs text-[#94a3b8] leading-relaxed">{t}</span></li>))}
+                        <div className="flex items-center gap-3 mb-3"><div className={`p-2 rounded-none bg-[#18181c] ${q.color}`}><Icon size={17} /></div><h3 className="font-bold text-[#f2f2f0] text-sm">{q.title}</h3></div>
+                        <ul className="space-y-2 border-t border-[#232327] pt-3">
+                          {q.items.map((t) => (<li key={t} className="flex items-start gap-2"><ChevronRight size={12} className={`${q.color} mt-0.5 shrink-0`} /><span className="text-xs text-[#c7c7cc] leading-relaxed">{t}</span></li>))}
                         </ul>
                       </div>
                     </motion.div>
@@ -287,9 +287,9 @@ export default function RAMSCaseStudy({ isOpen, onClose }) {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Code2} label="Technologies Used" color="text-purple-400" />
-              <div className="glass rounded-2xl p-6 border border-[#2a3347]">
+              <div className="glass rounded-none p-6 border border-[#232327]">
                 <div className="flex flex-wrap gap-3">
-                  {TECH_STACK.map((t) => (<span key={t.name} className={`px-4 py-2 rounded-xl text-sm font-medium border ${t.badge}`}>{t.name}</span>))}
+                  {TECH_STACK.map((t) => (<span key={t.name} className={`px-4 py-2 rounded-none text-sm font-medium border ${t.badge}`}>{t.name}</span>))}
                 </div>
               </div>
             </motion.div>
@@ -299,22 +299,22 @@ export default function RAMSCaseStudy({ isOpen, onClose }) {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {SCREENSHOTS.map((shot, i) => (<ScreenshotCard key={shot.label} shot={shot} index={i} />))}
               </div>
-              <p className="text-xs text-[#4a5568] text-center mt-4 font-mono">Screens from the RAMS web app · UMPSA Final Year Project</p>
+              <p className="text-xs text-[#313136] text-center mt-4 font-mono">Screens from the RAMS web app · UMPSA Final Year Project</p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Star} label="My Role" color="text-fuchsia-400" />
-              <div className="glass rounded-2xl p-7 border border-violet-500/20">
+              <div className="glass rounded-none p-7 border border-violet-500/20">
                 <div className="flex flex-wrap items-start gap-4 mb-5">
                   <span className="text-3xl select-none">👨‍💻</span>
                   <div>
-                    <h3 className="font-bold text-[#e2e8f0] text-base">Solo Final Year Project</h3>
-                    <p className="text-xs text-[#94a3b8] mt-0.5">CB22162 · Supervisor: TS. Dr. Abdul Sahli bin Fakharudin · UMPSA</p>
+                    <h3 className="font-bold text-[#f2f2f0] text-base">Solo Final Year Project</h3>
+                    <p className="text-xs text-[#c7c7cc] mt-0.5">CB22162 · Supervisor: TS. Dr. Abdul Sahli bin Fakharudin · UMPSA</p>
                   </div>
                 </div>
-                <p className="text-sm text-[#94a3b8] leading-relaxed mb-5">I designed, built and documented RAMS end-to-end — the frontend, the FastAPI backend, the hybrid NLP matching engine and the thesis itself.</p>
+                <p className="text-sm text-[#c7c7cc] leading-relaxed mb-5">I designed, built and documented RAMS end-to-end — the frontend, the FastAPI backend, the hybrid NLP matching engine and the thesis itself.</p>
                 <div className="grid sm:grid-cols-2 gap-3">
-                  {MY_ROLE_SUBS.map((item) => (<div key={item} className="flex items-start gap-2"><CheckCircle2 size={13} className="text-violet-400 mt-0.5 shrink-0" /><span className="text-xs text-[#94a3b8] leading-relaxed">{item}</span></div>))}
+                  {MY_ROLE_SUBS.map((item) => (<div key={item} className="flex items-start gap-2"><CheckCircle2 size={13} className="text-violet-400 mt-0.5 shrink-0" /><span className="text-xs text-[#c7c7cc] leading-relaxed">{item}</span></div>))}
                 </div>
               </div>
             </motion.div>
@@ -325,10 +325,10 @@ export default function RAMSCaseStudy({ isOpen, onClose }) {
                 {CHALLENGES.map((item, i) => {
                   const Icon = item.icon
                   return (
-                    <motion.div key={item.title} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }} className="glass rounded-xl p-6 border border-[#2a3347]">
+                    <motion.div key={item.title} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }} className="glass rounded-none p-6 border border-[#232327]">
                       <div className="flex items-start gap-4">
-                        <div className={`p-2 rounded-lg bg-[#1e2534] ${item.color} shrink-0 mt-0.5`}><Icon size={15} /></div>
-                        <div><h4 className="font-semibold text-[#e2e8f0] mb-2 text-sm">{item.title}</h4><p className="text-xs text-[#94a3b8] leading-relaxed">{item.solution}</p></div>
+                        <div className={`p-2 rounded-none bg-[#18181c] ${item.color} shrink-0 mt-0.5`}><Icon size={15} /></div>
+                        <div><h4 className="font-semibold text-[#f2f2f0] mb-2 text-sm">{item.title}</h4><p className="text-xs text-[#c7c7cc] leading-relaxed">{item.solution}</p></div>
                       </div>
                     </motion.div>
                   )
@@ -340,19 +340,19 @@ export default function RAMSCaseStudy({ isOpen, onClose }) {
               <SectionTitle icon={Award} label="Skills Demonstrated" color="text-purple-400" />
               <div className="flex flex-wrap gap-2.5">
                 {SKILLS.map((skill, i) => (
-                  <motion.span key={skill} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.25, delay: i * 0.04 }} className="px-3.5 py-1.5 rounded-lg text-sm font-medium bg-[#161b27] border border-[#2a3347] text-[#94a3b8] hover:text-fuchsia-300 hover:border-fuchsia-400/30 transition-colors duration-200 cursor-default">{skill}</motion.span>
+                  <motion.span key={skill} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.25, delay: i * 0.04 }} className="px-3.5 py-1.5 rounded-none text-sm font-medium bg-[#0a0a0d] border border-[#232327] text-[#c7c7cc] hover:text-fuchsia-300 hover:border-fuchsia-400/30 transition-colors duration-200 cursor-default">{skill}</motion.span>
                 ))}
               </div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <div className="glass rounded-2xl p-8 border border-violet-500/20 text-center">
-                <p className="text-sm text-[#94a3b8] mb-5">My Final Year Project at UMPSA. The thesis is restricted, but the source code is public on GitHub.</p>
+              <div className="glass rounded-none p-8 border border-violet-500/20 text-center">
+                <p className="text-sm text-[#c7c7cc] mb-5">My Final Year Project at UMPSA. The thesis is restricted, but the source code is public on GitHub.</p>
                 <div className="flex flex-wrap gap-4 justify-center">
-                  <a href="https://github.com/MohammedAlkaf1/MyFYP" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-violet-500 to-fuchsia-600 text-white font-medium text-sm hover:opacity-90 transition-opacity duration-200">
+                  <a href="https://github.com/MohammedAlkaf1/MyFYP" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-none bg-gradient-to-r from-violet-500 to-fuchsia-600 text-white font-medium text-sm hover:opacity-90 transition-opacity duration-200">
                     <Code2 size={15} /> View Code
                   </a>
-                  <button onClick={onClose} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#2a3347] text-[#94a3b8] font-medium text-sm hover:text-[#e2e8f0] hover:border-[#4a5568] transition-all duration-200"><X size={14} /> Close</button>
+                  <button onClick={onClose} className="inline-flex items-center gap-2 px-6 py-3 rounded-none border border-[#232327] text-[#c7c7cc] font-medium text-sm hover:text-[#f2f2f0] hover:border-[#313136] transition-all duration-200"><X size={14} /> Close</button>
                 </div>
               </div>
             </motion.div>

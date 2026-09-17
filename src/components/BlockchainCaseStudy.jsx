@@ -84,7 +84,7 @@ function SectionTitle({ icon: Icon, label, color = 'text-amber-400' }) {
     <div className={`flex items-center gap-2 mb-6 ${color}`}>
       <Icon size={17} />
       <span className="text-xs font-mono uppercase tracking-widest">{label}</span>
-      <div className="flex-1 h-px bg-[#2a3347] ml-2" />
+      <div className="flex-1 h-px bg-[#232327] ml-2" />
     </div>
   )
 }
@@ -93,8 +93,8 @@ function ScreenshotCard({ shot, index }) {
   const [imgError, setImgError] = useState(false)
   const [loaded, setLoaded] = useState(false)
   return (
-    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-20px' }} transition={{ duration: 0.4, delay: index * 0.05 }} className="group rounded-xl overflow-hidden border border-[#2a3347] hover:border-amber-500/40 transition-all duration-300">
-      <div className="aspect-video relative overflow-hidden bg-[#0a0f1e]">
+    <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-20px' }} transition={{ duration: 0.4, delay: index * 0.05 }} className="group rounded-none overflow-hidden border border-[#232327] hover:border-amber-500/40 transition-all duration-300">
+      <div className="aspect-video relative overflow-hidden bg-[#18181c]">
         {!imgError ? (
           <>
             <img src={shot.src} alt={shot.label} onLoad={() => setLoaded(true)} onError={() => setImgError(true)} className={`w-full h-full object-cover object-top transition-all duration-500 group-hover:scale-105 ${loaded ? 'opacity-100' : 'opacity-0'}`} />
@@ -105,7 +105,7 @@ function ScreenshotCard({ shot, index }) {
         )}
         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
       </div>
-      <div className="p-3 bg-[#161b27]"><p className="text-sm font-semibold text-[#e2e8f0]">{shot.label}</p><p className="text-xs text-[#94a3b8] mt-0.5 leading-relaxed">{shot.desc}</p></div>
+      <div className="p-3 bg-[#0a0a0d]"><p className="text-sm font-semibold text-[#f2f2f0]">{shot.label}</p><p className="text-xs text-[#c7c7cc] mt-0.5 leading-relaxed">{shot.desc}</p></div>
     </motion.div>
   )
 }
@@ -121,31 +121,31 @@ export default function BlockchainCaseStudy({ isOpen, onClose }) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} className="fixed inset-0 z-50 bg-[#080c15]/97 backdrop-blur-md overflow-y-auto">
-          <div className="sticky top-0 z-10 bg-[#0d1117]/90 backdrop-blur-sm border-b border-[#2a3347] px-6 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-2 text-sm text-[#94a3b8]">
-              <button onClick={onClose} className="hover:text-[#e2e8f0] transition-colors duration-200">Projects</button>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.25 }} className="fixed inset-0 z-50 bg-[#0a0a0d]/97 backdrop-blur-md overflow-y-auto">
+          <div className="sticky top-0 z-10 bg-[#0a0a0d]/90 backdrop-blur-sm border-b border-[#232327] px-6 py-3 flex items-center justify-between">
+            <div className="flex items-center gap-2 text-sm text-[#c7c7cc]">
+              <button onClick={onClose} className="hover:text-[#f2f2f0] transition-colors duration-200">Projects</button>
               <ChevronRight size={14} />
               <span className="text-amber-300 font-medium">Donation Tracking</span>
-              <span className="hidden sm:inline text-[#2a3347] mx-1">—</span>
+              <span className="hidden sm:inline text-[#232327] mx-1">—</span>
               <span className="hidden sm:inline">Case Study</span>
             </div>
-            <button onClick={onClose} className="p-2 rounded-lg border border-[#2a3347] text-[#94a3b8] hover:text-[#e2e8f0] hover:border-[#4a5568] transition-all duration-200" aria-label="Close case study"><X size={16} /></button>
+            <button onClick={onClose} className="p-2 rounded-none border border-[#232327] text-[#c7c7cc] hover:text-[#f2f2f0] hover:border-[#313136] transition-all duration-200" aria-label="Close case study"><X size={16} /></button>
           </div>
 
           <div className="max-w-5xl mx-auto px-6 py-12 pb-28">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }} className="mb-14">
-              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-yellow-500/10 to-amber-600/10 border border-amber-500/20 p-8 md:p-12">
+              <div className="relative rounded-none overflow-hidden bg-gradient-to-br from-yellow-500/10 to-amber-600/10 border border-amber-500/20 p-8 md:p-12">
                 <div className="absolute inset-0 opacity-5" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, #eab308 1px, transparent 1px), radial-gradient(circle at 80% 20%, #f59e0b 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
                 <div className="relative z-10">
                   <span className="inline-block px-3 py-1 rounded-full text-xs font-medium bg-amber-400/15 border border-amber-400/30 text-amber-300 mb-5">Blockchain Technology · BCI3353 · UMPSA · 2025/2026</span>
-                  <div className="flex items-center gap-4 mb-5"><span className="text-5xl select-none">🔗</span><h1 className="text-3xl md:text-4xl font-bold text-[#e2e8f0]">Donation Tracking</h1></div>
-                  <p className="text-[#94a3b8] text-base md:text-lg leading-relaxed max-w-2xl mb-7">
-                    A <span className="text-[#e2e8f0] font-medium">blockchain-based donation tracking system</span> that simulates a Hyperledger
+                  <div className="flex items-center gap-4 mb-5"><span className="text-5xl select-none">🔗</span><h1 className="text-3xl md:text-4xl font-bold text-[#f2f2f0]">Donation Tracking</h1></div>
+                  <p className="text-[#c7c7cc] text-base md:text-lg leading-relaxed max-w-2xl mb-7">
+                    A <span className="text-[#f2f2f0] font-medium">blockchain-based donation tracking system</span> that simulates a Hyperledger
                     Fabric network in Node.js/Express. A JavaScript smart contract drives each donation through its full on-chain lifecycle on an
                     append-only ledger, with cryptographic transaction hashes and dual Charity/Auditor roles.
                   </p>
-                  <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[#2a3347] bg-[#0d1117]/40 text-[#94a3b8] text-sm font-medium"><Lock size={15} /> Individual Final Assessment · public source repo</span>
+                  <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-none border border-[#232327] bg-[#0a0a0d]/40 text-[#c7c7cc] text-sm font-medium"><Lock size={15} /> Individual Final Assessment · public source repo</span>
                 </div>
               </div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-5">
@@ -155,19 +155,19 @@ export default function BlockchainCaseStudy({ isOpen, onClose }) {
                   { value: '2', label: 'Organisations', icon: '🏢' },
                   { value: 'Fabric', label: 'Simulated', icon: '🔗' },
                 ].map((stat) => (
-                  <div key={stat.label} className="glass rounded-xl p-4 text-center border border-[#2a3347]"><div className="text-2xl mb-1 select-none">{stat.icon}</div><div className="text-xl font-bold text-[#e2e8f0]">{stat.value}</div><div className="text-xs text-[#94a3b8]">{stat.label}</div></div>
+                  <div key={stat.label} className="glass rounded-none p-4 text-center border border-[#232327]"><div className="text-2xl mb-1 select-none">{stat.icon}</div><div className="text-xl font-bold text-[#f2f2f0]">{stat.value}</div><div className="text-xs text-[#c7c7cc]">{stat.label}</div></div>
                 ))}
               </div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Target} label="Problem Statement" color="text-red-400" />
-              <div className="glass rounded-2xl p-7 border border-[#2a3347]">
-                <p className="text-[#94a3b8] leading-relaxed">
-                  Traditional donation platforms run on <span className="text-[#e2e8f0] font-medium">centralised databases</span> controlled by the
+              <div className="glass rounded-none p-7 border border-[#232327]">
+                <p className="text-[#c7c7cc] leading-relaxed">
+                  Traditional donation platforms run on <span className="text-[#f2f2f0] font-medium">centralised databases</span> controlled by the
                   charity itself — leaving room for fraud, altered records and a single point of failure, while donors and auditors get no
                   tamper-proof trail to follow the money. This project replaces that trust gap with a
-                  <span className="text-[#e2e8f0] font-medium"> permissioned blockchain</span> where every step of a donation is immutable,
+                  <span className="text-[#f2f2f0] font-medium"> permissioned blockchain</span> where every step of a donation is immutable,
                   traceable and independently verifiable.
                 </p>
               </div>
@@ -177,7 +177,7 @@ export default function BlockchainCaseStudy({ isOpen, onClose }) {
               <SectionTitle icon={Target} label="Project Objectives" color="text-amber-400" />
               <div className="grid sm:grid-cols-2 gap-3">
                 {OBJECTIVES.map((obj, i) => (
-                  <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.07 }} className="flex items-start gap-3 glass rounded-xl p-4 border border-[#2a3347]"><CheckCircle2 size={15} className="text-amber-400 mt-0.5 shrink-0" /><p className="text-sm text-[#94a3b8] leading-relaxed">{obj}</p></motion.div>
+                  <motion.div key={i} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.07 }} className="flex items-start gap-3 glass rounded-none p-4 border border-[#232327]"><CheckCircle2 size={15} className="text-amber-400 mt-0.5 shrink-0" /><p className="text-sm text-[#c7c7cc] leading-relaxed">{obj}</p></motion.div>
                 ))}
               </div>
             </motion.div>
@@ -186,9 +186,9 @@ export default function BlockchainCaseStudy({ isOpen, onClose }) {
               <SectionTitle icon={Users} label="Stakeholders & Roles" color="text-orange-400" />
               <div className="grid md:grid-cols-3 gap-5">
                 {STAKEHOLDERS.map((user, i) => (
-                  <motion.div key={user.role} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="glass rounded-2xl overflow-hidden border border-[#2a3347]">
+                  <motion.div key={user.role} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="glass rounded-none overflow-hidden border border-[#232327]">
                     <div className={`h-1.5 bg-gradient-to-r ${user.gradient}`} />
-                    <div className="p-6"><div className="text-3xl mb-3 select-none">{user.icon}</div><h3 className="font-bold text-[#e2e8f0] mb-4 text-sm">{user.role}</h3><ul className="space-y-2">{user.actions.map((a) => (<li key={a} className="flex items-start gap-2"><ArrowRight size={11} className="text-[#4a5568] mt-1 shrink-0" /><span className="text-xs text-[#94a3b8] leading-relaxed">{a}</span></li>))}</ul></div>
+                    <div className="p-6"><div className="text-3xl mb-3 select-none">{user.icon}</div><h3 className="font-bold text-[#f2f2f0] mb-4 text-sm">{user.role}</h3><ul className="space-y-2">{user.actions.map((a) => (<li key={a} className="flex items-start gap-2"><ArrowRight size={11} className="text-[#313136] mt-1 shrink-0" /><span className="text-xs text-[#c7c7cc] leading-relaxed">{a}</span></li>))}</ul></div>
                   </motion.div>
                 ))}
               </div>
@@ -196,13 +196,13 @@ export default function BlockchainCaseStudy({ isOpen, onClose }) {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Link2} label="Donation Lifecycle" color="text-amber-400" />
-              <div className="glass rounded-2xl p-6 border border-[#2a3347]">
+              <div className="glass rounded-none p-6 border border-[#232327]">
                 <div className="flex flex-col gap-3">
                   {LIFECYCLE.map((s, i) => (
                     <motion.div key={s.state} initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.3, delay: i * 0.08 }} className="flex items-center gap-4">
-                      <span className={`text-xs font-mono font-semibold px-3 py-1.5 rounded-lg border w-32 text-center shrink-0 ${s.color}`}>{s.state}</span>
-                      <ChevronRight size={14} className="text-[#4a5568] shrink-0" />
-                      <span className="text-sm text-[#94a3b8] leading-relaxed">{s.desc}</span>
+                      <span className={`text-xs font-mono font-semibold px-3 py-1.5 rounded-none border w-32 text-center shrink-0 ${s.color}`}>{s.state}</span>
+                      <ChevronRight size={14} className="text-[#313136] shrink-0" />
+                      <span className="text-sm text-[#c7c7cc] leading-relaxed">{s.desc}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -211,14 +211,14 @@ export default function BlockchainCaseStudy({ isOpen, onClose }) {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Boxes} label="Smart Contract — DonationContract" color="text-amber-400" />
-              <p className="text-sm text-[#94a3b8] leading-relaxed mb-5 max-w-3xl">Nine chaincode functions enforce <span className="text-[#e2e8f0] font-medium">access control first, then state validation</span>, and only then update the ledger — so unauthorized or invalid operations are rejected before anything is written.</p>
+              <p className="text-sm text-[#c7c7cc] leading-relaxed mb-5 max-w-3xl">Nine chaincode functions enforce <span className="text-[#f2f2f0] font-medium">access control first, then state validation</span>, and only then update the ledger — so unauthorized or invalid operations are rejected before anything is written.</p>
               <div className="grid md:grid-cols-3 gap-5">
                 {FUNCTIONS.map((q, i) => {
                   const Icon = q.icon
                   return (
-                    <motion.div key={q.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="glass rounded-2xl overflow-hidden border border-[#2a3347]">
+                    <motion.div key={q.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }} className="glass rounded-none overflow-hidden border border-[#232327]">
                       <div className={`h-1 bg-gradient-to-r ${q.bar}`} />
-                      <div className="p-6"><div className="flex items-center gap-3 mb-3"><div className={`p-2 rounded-lg bg-[#1e2534] ${q.color}`}><Icon size={17} /></div><h3 className="font-bold text-[#e2e8f0] text-sm">{q.title}</h3></div><ul className="space-y-2 border-t border-[#2a3347] pt-3">{q.items.map((t) => (<li key={t} className="flex items-start gap-2"><ChevronRight size={12} className={`${q.color} mt-0.5 shrink-0`} /><span className="text-xs text-[#94a3b8] leading-relaxed font-mono">{t}</span></li>))}</ul></div>
+                      <div className="p-6"><div className="flex items-center gap-3 mb-3"><div className={`p-2 rounded-none bg-[#18181c] ${q.color}`}><Icon size={17} /></div><h3 className="font-bold text-[#f2f2f0] text-sm">{q.title}</h3></div><ul className="space-y-2 border-t border-[#232327] pt-3">{q.items.map((t) => (<li key={t} className="flex items-start gap-2"><ChevronRight size={12} className={`${q.color} mt-0.5 shrink-0`} /><span className="text-xs text-[#c7c7cc] leading-relaxed font-mono">{t}</span></li>))}</ul></div>
                     </motion.div>
                   )
                 })}
@@ -227,20 +227,20 @@ export default function BlockchainCaseStudy({ isOpen, onClose }) {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Code2} label="Technologies Used" color="text-yellow-400" />
-              <div className="glass rounded-2xl p-6 border border-[#2a3347]"><div className="flex flex-wrap gap-3">{TECH_STACK.map((t) => (<span key={t.name} className={`px-4 py-2 rounded-xl text-sm font-medium border ${t.badge}`}>{t.name}</span>))}</div></div>
+              <div className="glass rounded-none p-6 border border-[#232327]"><div className="flex flex-wrap gap-3">{TECH_STACK.map((t) => (<span key={t.name} className={`px-4 py-2 rounded-none text-sm font-medium border ${t.badge}`}>{t.name}</span>))}</div></div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Image} label="Screenshots" color="text-amber-400" />
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">{SCREENSHOTS.map((shot, i) => (<ScreenshotCard key={shot.label} shot={shot} index={i} />))}</div>
-              <p className="text-xs text-[#4a5568] text-center mt-4 font-mono">LedgerAid web interface · BCI3353 Final Assessment</p>
+              <p className="text-xs text-[#313136] text-center mt-4 font-mono">LedgerAid web interface · BCI3353 Final Assessment</p>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Star} label="My Role" color="text-amber-400" />
-              <div className="glass rounded-2xl p-7 border border-amber-500/20">
-                <div className="flex flex-wrap items-start gap-4 mb-5"><span className="text-3xl select-none">👨‍💻</span><div><h3 className="font-bold text-[#e2e8f0] text-base">Individual Final Assessment (45%)</h3><p className="text-xs text-[#94a3b8] mt-0.5">CB22162 · Blockchain Technology · UMPSA</p></div></div>
-                <div className="grid sm:grid-cols-2 gap-3">{MY_ROLE_SUBS.map((item) => (<div key={item} className="flex items-start gap-2"><CheckCircle2 size={13} className="text-amber-400 mt-0.5 shrink-0" /><span className="text-xs text-[#94a3b8] leading-relaxed">{item}</span></div>))}</div>
+              <div className="glass rounded-none p-7 border border-amber-500/20">
+                <div className="flex flex-wrap items-start gap-4 mb-5"><span className="text-3xl select-none">👨‍💻</span><div><h3 className="font-bold text-[#f2f2f0] text-base">Individual Final Assessment (45%)</h3><p className="text-xs text-[#c7c7cc] mt-0.5">CB22162 · Blockchain Technology · UMPSA</p></div></div>
+                <div className="grid sm:grid-cols-2 gap-3">{MY_ROLE_SUBS.map((item) => (<div key={item} className="flex items-start gap-2"><CheckCircle2 size={13} className="text-amber-400 mt-0.5 shrink-0" /><span className="text-xs text-[#c7c7cc] leading-relaxed">{item}</span></div>))}</div>
               </div>
             </motion.div>
 
@@ -250,8 +250,8 @@ export default function BlockchainCaseStudy({ isOpen, onClose }) {
                 {CHALLENGES.map((item, i) => {
                   const Icon = item.icon
                   return (
-                    <motion.div key={item.title} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }} className="glass rounded-xl p-6 border border-[#2a3347]">
-                      <div className="flex items-start gap-4"><div className={`p-2 rounded-lg bg-[#1e2534] ${item.color} shrink-0 mt-0.5`}><Icon size={15} /></div><div><h4 className="font-semibold text-[#e2e8f0] mb-2 text-sm">{item.title}</h4><p className="text-xs text-[#94a3b8] leading-relaxed">{item.solution}</p></div></div>
+                    <motion.div key={item.title} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }} className="glass rounded-none p-6 border border-[#232327]">
+                      <div className="flex items-start gap-4"><div className={`p-2 rounded-none bg-[#18181c] ${item.color} shrink-0 mt-0.5`}><Icon size={15} /></div><div><h4 className="font-semibold text-[#f2f2f0] mb-2 text-sm">{item.title}</h4><p className="text-xs text-[#c7c7cc] leading-relaxed">{item.solution}</p></div></div>
                     </motion.div>
                   )
                 })}
@@ -260,15 +260,15 @@ export default function BlockchainCaseStudy({ isOpen, onClose }) {
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14">
               <SectionTitle icon={Award} label="Skills Demonstrated" color="text-orange-400" />
-              <div className="flex flex-wrap gap-2.5">{SKILLS.map((skill, i) => (<motion.span key={skill} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.25, delay: i * 0.04 }} className="px-3.5 py-1.5 rounded-lg text-sm font-medium bg-[#161b27] border border-[#2a3347] text-[#94a3b8] hover:text-amber-300 hover:border-amber-400/30 transition-colors duration-200 cursor-default">{skill}</motion.span>))}</div>
+              <div className="flex flex-wrap gap-2.5">{SKILLS.map((skill, i) => (<motion.span key={skill} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.25, delay: i * 0.04 }} className="px-3.5 py-1.5 rounded-none text-sm font-medium bg-[#0a0a0d] border border-[#232327] text-[#c7c7cc] hover:text-amber-300 hover:border-amber-400/30 transition-colors duration-200 cursor-default">{skill}</motion.span>))}</div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-              <div className="glass rounded-2xl p-8 border border-amber-500/20 text-center">
-                <p className="text-sm text-[#94a3b8] mb-5">An individual blockchain final assessment at UMPSA. The full source — chaincode, backend and UI — is public on GitHub.</p>
+              <div className="glass rounded-none p-8 border border-amber-500/20 text-center">
+                <p className="text-sm text-[#c7c7cc] mb-5">An individual blockchain final assessment at UMPSA. The full source — chaincode, backend and UI — is public on GitHub.</p>
                 <div className="flex flex-wrap gap-4 justify-center">
-                  <a href="https://github.com/MohammedAlkaf1/blockchain-donation-tracking" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-yellow-500 to-amber-600 text-white font-medium text-sm hover:opacity-90 transition-opacity duration-200"><Code2 size={15} /> View Code</a>
-                  <button onClick={onClose} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#2a3347] text-[#94a3b8] font-medium text-sm hover:text-[#e2e8f0] hover:border-[#4a5568] transition-all duration-200"><X size={14} /> Close</button>
+                  <a href="https://github.com/MohammedAlkaf1/blockchain-donation-tracking" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 rounded-none bg-gradient-to-r from-yellow-500 to-amber-600 text-white font-medium text-sm hover:opacity-90 transition-opacity duration-200"><Code2 size={15} /> View Code</a>
+                  <button onClick={onClose} className="inline-flex items-center gap-2 px-6 py-3 rounded-none border border-[#232327] text-[#c7c7cc] font-medium text-sm hover:text-[#f2f2f0] hover:border-[#313136] transition-all duration-200"><X size={14} /> Close</button>
                 </div>
               </div>
             </motion.div>

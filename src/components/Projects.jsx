@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { Package } from 'lucide-react'
 import { GithubIcon } from './icons'
 import { projects } from '../data/projects'
 import ProjectCard from './ProjectCard'
@@ -11,12 +12,9 @@ import RAMSCaseStudy from './RAMSCaseStudy'
 import DepressionCaseStudy from './DepressionCaseStudy'
 import BlockchainCaseStudy from './BlockchainCaseStudy'
 
-const filters = ['All', 'Featured', 'Python', 'PHP', 'JavaScript', 'TypeScript', 'Laravel', 'Flutter', 'Firebase']
+const FEATURED_SLUG = 'rams-fyp'
 
 export default function Projects() {
-  const titleRef = useRef(null)
-  const titleInView = useInView(titleRef, { once: true, margin: '-80px' })
-  const [activeFilter, setActiveFilter] = useState('All')
   const [caseStudyOpen, setCaseStudyOpen] = useState(false)
   const [sebenarnyaOpen, setSebenarnyaOpen] = useState(false)
   const [smartedOpen, setSmartedOpen] = useState(false)
@@ -25,78 +23,96 @@ export default function Projects() {
   const [depressionOpen, setDepressionOpen] = useState(false)
   const [blockchainOpen, setBlockchainOpen] = useState(false)
 
-  const filtered = projects.filter((p) => {
-    if (activeFilter === 'All') return true
-    if (activeFilter === 'Featured') return p.featured
-    return p.tech.some((t) => t.toLowerCase().includes(activeFilter.toLowerCase()))
-  })
+  const openCaseStudy = (slug) => () => {
+    if (slug === 'mypetakom') setCaseStudyOpen(true)
+    else if (slug === 'MySebenarnya') setSebenarnyaOpen(true)
+    else if (slug === 'smartED') setSmartedOpen(true)
+    else if (slug === 'sams') setSamsOpen(true)
+    else if (slug === 'rams-fyp') setRamsOpen(true)
+    else if (slug === 'student-depression-detection') setDepressionOpen(true)
+    else if (slug === 'blockchain-donation-tracking') setBlockchainOpen(true)
+  }
+
+  const featured = projects.find((p) => p.slug === FEATURED_SLUG)
+  const rest = projects.filter((p) => p.slug !== FEATURED_SLUG)
 
   return (
-    <section id="projects" className="py-24 px-6">
+    <section id="work" className="relative px-6 py-24 md:py-32">
       <div className="max-w-6xl mx-auto">
         <motion.div
-          ref={titleRef}
-          initial={{ opacity: 0, y: 20 }}
-          animate={titleInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="flex flex-col items-center text-center mb-16 md:mb-20"
         >
-          <span className="text-cyan-400 text-sm font-mono uppercase tracking-widest">
-            03. Projects
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#e2e8f0] mt-3">
-            What I've Built
+          <div className="eyebrow-pill mb-6">
+            <Package size={13} />
+            Work
+          </div>
+          <h2 className="section-heading text-3xl md:text-5xl max-w-2xl">
+            Nine projects, <span className="emphasis">one recurring interest</span>
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full mx-auto mt-4" />
-          <p className="text-[#94a3b8] text-sm mt-4 max-w-lg mx-auto">
-            A selection of projects I've developed as a Software Engineering student, ranging from
-            AI-powered tools to full-stack web applications.
+          <p className="text-[#8a8a92] text-base mt-4 max-w-lg">
+            Systems that hold up under real use — not toy briefs.
           </p>
         </motion.div>
 
-        {/* Filter tabs */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={titleInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-2 mb-10"
-        >
-          {filters.map((f) => (
-            <button
-              key={f}
-              onClick={() => setActiveFilter(f)}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
-                activeFilter === f
-                  ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white'
-                  : 'border border-[#2a3347] text-[#94a3b8] hover:border-cyan-400/50 hover:text-cyan-400'
-              }`}
-            >
-              {f}
-            </button>
-          ))}
-        </motion.div>
+        {/* Featured spread */}
+        {featured && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.6 }}
+            className="card overflow-hidden mb-6"
+          >
+            <div className="grid md:grid-cols-2">
+              <div className="aspect-[4/3] md:aspect-auto bg-dots flex items-center justify-center border-b md:border-b-0 md:border-r border-[#232327]">
+                <span className="text-7xl select-none">{featured.icon}</span>
+              </div>
+              <div className="p-8 md:p-10 flex flex-col justify-center">
+                <span className="idx-num mb-4">Featured — Final Year Project</span>
+                <h3 className="font-sans font-bold text-2xl md:text-3xl text-[#f2f2f0] mb-4 leading-tight">
+                  {featured.name}
+                </h3>
+                <p className="text-[#8a8a92] text-sm leading-relaxed mb-5 max-w-md">
+                  {featured.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-6">
+                  {featured.tech.map((t) => (
+                    <span key={t} className="tag">{t}</span>
+                  ))}
+                </div>
+                <div className="flex flex-wrap items-center gap-5">
+                  {featured.github && (
+                    <a
+                      href={featured.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="link-underline text-sm text-[#c7c7cc] hover:text-[#f2f2f0] inline-flex items-center gap-1.5"
+                    >
+                      <GithubIcon size={13} />
+                      Code
+                    </a>
+                  )}
+                  <button onClick={openCaseStudy(featured.slug)} className="btn-pill-primary">
+                    Read the case study
+                  </button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
 
-        {/* Project grid */}
+        {/* Grid */}
         <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {filtered.map((project, i) => (
+          {rest.map((project, i) => (
             <ProjectCard
               key={project.id}
               project={project}
               index={i}
-              featured={project.featured}
-              onViewCaseStudy={
-                project.caseStudy
-                  ? () => {
-                      if (project.slug === 'mypetakom') setCaseStudyOpen(true)
-                      else if (project.slug === 'MySebenarnya') setSebenarnyaOpen(true)
-                      else if (project.slug === 'smartED') setSmartedOpen(true)
-                      else if (project.slug === 'sams') setSamsOpen(true)
-                      else if (project.slug === 'rams-fyp') setRamsOpen(true)
-                      else if (project.slug === 'student-depression-detection') setDepressionOpen(true)
-                      else if (project.slug === 'blockchain-donation-tracking') setBlockchainOpen(true)
-                    }
-                  : undefined
-              }
+              onViewCaseStudy={project.caseStudy ? openCaseStudy(project.slug) : undefined}
             />
           ))}
         </div>
@@ -109,25 +125,20 @@ export default function Projects() {
         <DepressionCaseStudy isOpen={depressionOpen} onClose={() => setDepressionOpen(false)} />
         <BlockchainCaseStudy isOpen={blockchainOpen} onClose={() => setBlockchainOpen(false)} />
 
-        {/* GitHub CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-center mt-12"
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mt-14"
         >
-          <p className="text-[#94a3b8] text-sm mb-4">
-            Want to see more of my work?
-          </p>
           <a
             href="https://github.com/MohammedAlkaf1"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#2a3347] text-[#94a3b8] font-medium text-sm hover:text-cyan-400 hover:border-cyan-400/50 transition-all duration-200"
+            className="btn-pill"
           >
-            <GithubIcon size={16} />
-            View All Repositories
+            View all repositories
           </a>
         </motion.div>
       </div>

@@ -1,124 +1,59 @@
 import { motion } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
-import { GithubIcon, LinkedinIcon } from './icons'
-
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.7, delay, ease: 'easeOut' },
-})
+import { ArrowUpRight } from 'lucide-react'
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-32 pb-20 overflow-hidden bg-radial-glow"
     >
-      {/* Animated background orbs */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-cyan-500/8 blur-3xl animate-pulse-glow" />
-        <div
-          className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-purple-600/8 blur-3xl animate-pulse-glow"
-          style={{ animationDelay: '1.5s' }}
-        />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-cyan-500/5 to-purple-600/5 blur-3xl" />
-      </div>
+      <div className="absolute inset-0 bg-dots opacity-40 [mask-image:radial-gradient(ellipse_60%_50%_at_50%_30%,black,transparent)]" />
 
-      {/* Grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0,212,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(0,212,255,0.5) 1px, transparent 1px)`,
-          backgroundSize: '60px 60px',
-        }}
-      />
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.15 }}
+        className="relative z-10 eyebrow-pill mb-8"
+      >
+        Software Engineering
+      </motion.div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
-        {/* Name */}
-        <motion.h1
-          {...fadeUp(0.2)}
-          className="text-5xl md:text-7xl font-extrabold tracking-tight mb-4 leading-none"
-        >
-          <span className="text-[#e2e8f0]">Mohammed</span>
-          <br />
-          <span className="gradient-text animate-gradient bg-gradient-to-r from-cyan-400 via-purple-400 to-cyan-400">
-            Alkaf
-          </span>
-        </motion.h1>
+      <motion.h1
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.25, ease: 'easeOut' }}
+        className="relative z-10 text-center font-sans font-extrabold text-[13vw] leading-[1.02] md:text-[4.6rem] md:leading-[1.04] tracking-tight max-w-4xl text-[#f2f2f0]"
+      >
+        I build software.
+        <br />
+        <span className="emphasis">Carefully.</span>
+      </motion.h1>
 
-        {/* Title */}
-        <motion.p
-          {...fadeUp(0.3)}
-          className="text-lg md:text-xl text-[#94a3b8] font-medium mb-6 font-mono"
-        >
-          <span className="text-cyan-400">&lt;</span>
-          Software Engineering
-          <span className="text-cyan-400">&gt;</span>
-        </motion.p>
+      <motion.p
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.38 }}
+        className="relative z-10 text-center text-[#8a8a92] text-base md:text-lg max-w-xl mt-7"
+      >
+        Full-stack web applications and backend systems built with Laravel,
+        FastAPI, and modern JavaScript — for problems that are actually worth
+        solving, not just portfolio filler.
+      </motion.p>
 
-        {/* Description */}
-        <motion.p
-          {...fadeUp(0.4)}
-          className="text-[#94a3b8] text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-10"
-        >
-          I build practical web applications and software solutions using modern
-          technologies, with a focus on clean design, backend development,
-          databases, and real-world problem solving.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          {...fadeUp(0.5)}
-          className="flex flex-wrap justify-center gap-4 mb-14"
-        >
-          <a
-            href="#projects"
-            className="px-7 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 text-white font-semibold text-sm hover:opacity-90 hover:scale-105 transition-all duration-200 glow-cyan"
-          >
-            View Projects
-          </a>
-          <a
-            href="#contact"
-            className="px-7 py-3 rounded-xl border border-[#2a3347] text-[#e2e8f0] font-semibold text-sm hover:border-cyan-400/50 hover:text-cyan-400 transition-all duration-200"
-          >
-            Contact Me
-          </a>
-          <a
-            href="https://github.com/MohammedAlkaf1"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-xl border border-[#2a3347] text-[#94a3b8] font-semibold text-sm hover:border-cyan-400/50 hover:text-cyan-400 transition-all duration-200"
-          >
-            <GithubIcon size={16} />
-            GitHub
-          </a>
-          <a
-            href="https://www.linkedin.com/in/mohammed-alkaf-254551288"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-xl border border-[#2a3347] text-[#94a3b8] font-semibold text-sm hover:border-purple-400/50 hover:text-purple-400 transition-all duration-200"
-          >
-            <LinkedinIcon size={16} />
-            LinkedIn
-          </a>
-        </motion.div>
-
-        {/* Scroll cue */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 0.8 }}
-          className="flex flex-col items-center gap-2 text-[#64748b]"
-        >
-          <span className="text-xs tracking-widest uppercase">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <ChevronDown size={18} />
-          </motion.div>
-        </motion.div>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.5 }}
+        className="relative z-10 flex flex-wrap items-center justify-center gap-4 mt-11"
+      >
+        <a href="#work" className="btn-pill-primary">
+          See my work
+          <ArrowUpRight size={15} />
+        </a>
+        <a href="#contact" className="btn-pill">
+          Get in touch
+        </a>
+      </motion.div>
     </section>
   )
 }

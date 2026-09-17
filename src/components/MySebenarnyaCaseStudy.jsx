@@ -170,7 +170,7 @@ const SKILLS = [
 
 function SectionTitle({ children }) {
   return (
-    <h2 className="text-xl font-bold text-[#e2e8f0] mb-6 flex items-center gap-3">
+    <h2 className="text-xl font-bold text-[#f2f2f0] mb-6 flex items-center gap-3">
       <span className="w-1 h-6 rounded-full bg-gradient-to-b from-rose-500 to-pink-600 shrink-0" />
       {children}
     </h2>
@@ -183,19 +183,19 @@ function ScreenshotCard({ src, label, emoji }) {
 
   if (imgError) {
     return (
-      <div className="rounded-xl overflow-hidden border border-[#2a3347] bg-[#0d1420]">
+      <div className="rounded-none overflow-hidden border border-[#232327] bg-[#18181c]">
         <div className="h-40 flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-rose-500/10 to-pink-600/10">
           <span className="text-3xl">{emoji}</span>
-          <span className="text-xs text-[#64748b]">Screenshot coming soon</span>
+          <span className="text-xs text-[#8a8a92]">Screenshot coming soon</span>
         </div>
-        <div className="px-3 py-2 text-xs text-[#94a3b8] text-center">{label}</div>
+        <div className="px-3 py-2 text-xs text-[#c7c7cc] text-center">{label}</div>
       </div>
     )
   }
 
   return (
-    <div className="rounded-xl overflow-hidden border border-[#2a3347] bg-[#0d1420] group cursor-pointer">
-      <div className="h-40 relative overflow-hidden bg-[#080c15]">
+    <div className="rounded-none overflow-hidden border border-[#232327] bg-[#18181c] group cursor-pointer">
+      <div className="h-40 relative overflow-hidden bg-[#0a0a0d]">
         {!loaded && (
           <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-rose-500/10 to-pink-600/10">
             <span className="text-3xl animate-pulse">{emoji}</span>
@@ -209,7 +209,7 @@ function ScreenshotCard({ src, label, emoji }) {
           className={`w-full h-full object-cover object-top transition-all duration-500 group-hover:scale-105 ${loaded ? 'opacity-100' : 'opacity-0'}`}
         />
       </div>
-      <div className="px-3 py-2 text-xs text-[#94a3b8] text-center">{label}</div>
+      <div className="px-3 py-2 text-xs text-[#c7c7cc] text-center">{label}</div>
     </div>
   )
 }
@@ -234,13 +234,13 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 bg-[#080c15]/97 backdrop-blur-md overflow-y-auto"
+          className="fixed inset-0 z-50 bg-[#0a0a0d]/97 backdrop-blur-md overflow-y-auto"
         >
           {/* Sticky header */}
-          <div className="sticky top-0 z-10 bg-[#080c15]/90 backdrop-blur-md border-b border-[#1e2534]">
+          <div className="sticky top-0 z-10 bg-[#0a0a0d]/90 backdrop-blur-md border-b border-[#18181c]">
             <div className="max-w-4xl mx-auto px-6 h-14 flex items-center justify-between">
-              <nav className="flex items-center gap-2 text-sm text-[#64748b]">
-                <button onClick={onClose} className="hover:text-[#94a3b8] transition-colors">
+              <nav className="flex items-center gap-2 text-sm text-[#8a8a92]">
+                <button onClick={onClose} className="hover:text-[#c7c7cc] transition-colors">
                   Projects
                 </button>
                 <span>/</span>
@@ -248,7 +248,7 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
               </nav>
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-lg text-[#64748b] hover:text-[#e2e8f0] hover:bg-[#1e2534] transition-all"
+                className="p-1.5 rounded-none text-[#8a8a92] hover:text-[#f2f2f0] hover:bg-[#18181c] transition-all"
                 aria-label="Close"
               >
                 <X size={18} />
@@ -269,13 +269,13 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
                 <Search size={12} />
                 MCMC Inquiry Management System
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-[#e2e8f0] mb-4 leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold text-[#f2f2f0] mb-4 leading-tight">
                 MySebenarnya
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-pink-500 text-2xl md:text-3xl mt-1">
                   Combating Misinformation with a Structured Inquiry Platform
                 </span>
               </h1>
-              <p className="text-[#94a3b8] text-lg leading-relaxed max-w-3xl mb-8">
+              <p className="text-[#c7c7cc] text-lg leading-relaxed max-w-3xl mb-8">
                 A collaborative full-stack web system built for the Malaysian Communications and Multimedia
                 Commission (MCMC) to receive, route, and resolve public inquiries about news authenticity —
                 featuring structured workflows for three distinct user roles and real-time progress tracking
@@ -290,9 +290,9 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
                   { value: '6', label: 'DB Tables' },
                   { value: 'SQA', label: 'My Role' },
                 ].map(({ value, label }) => (
-                  <div key={label} className="rounded-xl border border-[#1e2534] bg-[#0d1420] p-4 text-center">
+                  <div key={label} className="rounded-none border border-[#18181c] bg-[#18181c] p-4 text-center">
                     <div className="text-2xl font-bold text-rose-400 mb-1">{value}</div>
-                    <div className="text-xs text-[#64748b]">{label}</div>
+                    <div className="text-xs text-[#8a8a92]">{label}</div>
                   </div>
                 ))}
               </div>
@@ -301,18 +301,18 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
             {/* Problem Statement */}
             <div className="mb-14">
               <SectionTitle>Problem Statement</SectionTitle>
-              <div className="rounded-2xl border border-[#1e2534] bg-[#0d1420] p-6">
+              <div className="rounded-none border border-[#18181c] bg-[#18181c] p-6">
                 <div className="flex gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <div className="w-10 h-10 rounded-none bg-rose-500/10 border border-rose-500/20 flex items-center justify-center shrink-0 mt-0.5">
                     <AlertTriangle className="text-rose-400" size={18} />
                   </div>
                   <div>
-                    <p className="text-[#94a3b8] leading-relaxed mb-4">
+                    <p className="text-[#c7c7cc] leading-relaxed mb-4">
                       The rise of digital misinformation in Malaysia has created an urgent need for a formal,
                       traceable channel through which the public can flag potentially false news and have
                       those reports investigated by the appropriate authorities.
                     </p>
-                    <p className="text-[#94a3b8] leading-relaxed">
+                    <p className="text-[#c7c7cc] leading-relaxed">
                       Without a structured system, MCMC lacked the ability to efficiently triage incoming
                       reports, route them to relevant government agencies, monitor resolution progress, or
                       generate performance data — leading to delayed responses and no public accountability
@@ -328,9 +328,9 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
               <SectionTitle>Project Objectives</SectionTitle>
               <div className="grid md:grid-cols-2 gap-3">
                 {OBJECTIVES.map((obj, i) => (
-                  <div key={i} className="flex gap-3 rounded-xl border border-[#1e2534] bg-[#0d1420] p-4">
+                  <div key={i} className="flex gap-3 rounded-none border border-[#18181c] bg-[#18181c] p-4">
                     <CheckCircle2 className="text-rose-400 shrink-0 mt-0.5" size={16} />
-                    <p className="text-sm text-[#94a3b8] leading-relaxed">{obj}</p>
+                    <p className="text-sm text-[#c7c7cc] leading-relaxed">{obj}</p>
                   </div>
                 ))}
               </div>
@@ -341,12 +341,12 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
               <SectionTitle>Target Users</SectionTitle>
               <div className="grid md:grid-cols-3 gap-4">
                 {USERS.map(({ icon: Icon, label, color, bg, description }) => (
-                  <div key={label} className={`rounded-2xl border p-5 ${bg}`}>
-                    <div className={`w-10 h-10 rounded-xl ${bg} flex items-center justify-center mb-3`}>
+                  <div key={label} className={`rounded-none border p-5 ${bg}`}>
+                    <div className={`w-10 h-10 rounded-none ${bg} flex items-center justify-center mb-3`}>
                       <Icon className={color} size={20} />
                     </div>
                     <h3 className={`font-semibold mb-2 ${color}`}>{label}</h3>
-                    <p className="text-sm text-[#94a3b8] leading-relaxed">{description}</p>
+                    <p className="text-sm text-[#c7c7cc] leading-relaxed">{description}</p>
                   </div>
                 ))}
               </div>
@@ -357,14 +357,14 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
               <SectionTitle>System Modules</SectionTitle>
               <div className="grid md:grid-cols-2 gap-5">
                 {MODULES.map(({ icon: Icon, title, color, features }) => (
-                  <div key={title} className="rounded-2xl border border-[#1e2534] bg-[#0d1420] p-5">
-                    <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${color} flex items-center justify-center mb-4`}>
+                  <div key={title} className="rounded-none border border-[#18181c] bg-[#18181c] p-5">
+                    <div className={`w-10 h-10 rounded-none bg-gradient-to-br ${color} flex items-center justify-center mb-4`}>
                       <Icon className="text-white" size={18} />
                     </div>
-                    <h3 className="font-semibold text-[#e2e8f0] mb-3">{title}</h3>
+                    <h3 className="font-semibold text-[#f2f2f0] mb-3">{title}</h3>
                     <ul className="space-y-2">
                       {features.map((f) => (
-                        <li key={f} className="flex gap-2 text-sm text-[#94a3b8]">
+                        <li key={f} className="flex gap-2 text-sm text-[#c7c7cc]">
                           <span className="text-rose-400 shrink-0 mt-0.5">›</span>
                           {f}
                         </li>
@@ -378,16 +378,16 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
             {/* My Role */}
             <div className="mb-14">
               <SectionTitle>My Role — Software Quality Assurance</SectionTitle>
-              <div className="rounded-2xl border border-rose-500/20 bg-rose-500/5 p-6">
+              <div className="rounded-none border border-rose-500/20 bg-rose-500/5 p-6">
                 <div className="flex gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center shrink-0">
+                  <div className="w-12 h-12 rounded-none bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center shrink-0">
                     <CheckCircle2 className="text-white" size={22} />
                   </div>
                   <div>
                     <h3 className="font-semibold text-rose-400 mb-1">
                       Software Quality Assurance (CB22162)
                     </h3>
-                    <p className="text-xs text-[#64748b] mb-4">
+                    <p className="text-xs text-[#8a8a92] mb-4">
                       BCS2343 Software Design Workshop — Team Section 2A, Group 5
                     </p>
                     <div className="space-y-2">
@@ -399,7 +399,7 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
                         'Collaborated with the Chief Developer to validate controller and routing logic',
                         'Ensured role-based access control behaved correctly across all three user types',
                       ].map((item) => (
-                        <div key={item} className="flex gap-2 text-sm text-[#94a3b8]">
+                        <div key={item} className="flex gap-2 text-sm text-[#c7c7cc]">
                           <CheckCircle2 className="text-rose-400 shrink-0 mt-0.5" size={14} />
                           {item}
                         </div>
@@ -415,9 +415,9 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
               <SectionTitle>Technologies Used</SectionTitle>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                 {TECH_STACK.map(({ label, desc }) => (
-                  <div key={label} className="rounded-xl border border-[#1e2534] bg-[#0d1420] p-4">
-                    <div className="font-semibold text-[#e2e8f0] text-sm mb-1">{label}</div>
-                    <div className="text-xs text-[#64748b] leading-relaxed">{desc}</div>
+                  <div key={label} className="rounded-none border border-[#18181c] bg-[#18181c] p-4">
+                    <div className="font-semibold text-[#f2f2f0] text-sm mb-1">{label}</div>
+                    <div className="text-xs text-[#8a8a92] leading-relaxed">{desc}</div>
                   </div>
                 ))}
               </div>
@@ -426,7 +426,7 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
             {/* Screenshots */}
             <div className="mb-14">
               <SectionTitle>Screenshots</SectionTitle>
-              <p className="text-sm text-[#64748b] mb-5">
+              <p className="text-sm text-[#8a8a92] mb-5">
                 Application screenshots will appear here once added to{' '}
                 <code className="text-rose-400/80 bg-rose-500/10 px-1.5 py-0.5 rounded text-xs">
                   public/images/projects/mysebenarnya/
@@ -442,16 +442,16 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
             {/* Architecture */}
             <div className="mb-14">
               <SectionTitle>System Architecture</SectionTitle>
-              <div className="rounded-2xl border border-[#1e2534] bg-[#0d1420] p-6">
+              <div className="rounded-none border border-[#18181c] bg-[#18181c] p-6">
                 <div className="grid md:grid-cols-3 gap-6">
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <div className="w-6 h-6 rounded-md bg-blue-500/20 flex items-center justify-center">
                         <Database className="text-blue-400" size={12} />
                       </div>
-                      <span className="text-sm font-semibold text-[#e2e8f0]">Models (6)</span>
+                      <span className="text-sm font-semibold text-[#f2f2f0]">Models (6)</span>
                     </div>
-                    <ul className="space-y-1 text-xs text-[#64748b]">
+                    <ul className="space-y-1 text-xs text-[#8a8a92]">
                       {['PublicUser', 'MCMC', 'Agency', 'Inquiry', 'InquiryAssignment', 'InquiryStatusHistory'].map((m) => (
                         <li key={m} className="flex gap-1.5">
                           <span className="text-rose-500">›</span>
@@ -465,9 +465,9 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
                       <div className="w-6 h-6 rounded-md bg-rose-500/20 flex items-center justify-center">
                         <Code2 className="text-rose-400" size={12} />
                       </div>
-                      <span className="text-sm font-semibold text-[#e2e8f0]">Controllers (7)</span>
+                      <span className="text-sm font-semibold text-[#f2f2f0]">Controllers (7)</span>
                     </div>
-                    <ul className="space-y-1 text-xs text-[#64748b]">
+                    <ul className="space-y-1 text-xs text-[#8a8a92]">
                       {[
                         'UserAuthController',
                         'RegisterAgencyController',
@@ -489,9 +489,9 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
                       <div className="w-6 h-6 rounded-md bg-emerald-500/20 flex items-center justify-center">
                         <Layers className="text-emerald-400" size={12} />
                       </div>
-                      <span className="text-sm font-semibold text-[#e2e8f0]">Patterns</span>
+                      <span className="text-sm font-semibold text-[#f2f2f0]">Patterns</span>
                     </div>
-                    <ul className="space-y-1 text-xs text-[#64748b]">
+                    <ul className="space-y-1 text-xs text-[#8a8a92]">
                       {[
                         'MVC (Laravel)',
                         'Eloquent ORM',
@@ -517,21 +517,21 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
               <SectionTitle>Challenges &amp; Solutions</SectionTitle>
               <div className="space-y-4">
                 {CHALLENGES.map(({ icon: Icon, title, problem, solution }) => (
-                  <div key={title} className="rounded-2xl border border-[#1e2534] bg-[#0d1420] p-5">
+                  <div key={title} className="rounded-none border border-[#18181c] bg-[#18181c] p-5">
                     <div className="flex gap-3 mb-3">
-                      <div className="w-8 h-8 rounded-lg bg-rose-500/10 border border-rose-500/20 flex items-center justify-center shrink-0">
+                      <div className="w-8 h-8 rounded-none bg-rose-500/10 border border-rose-500/20 flex items-center justify-center shrink-0">
                         <Icon className="text-rose-400" size={15} />
                       </div>
-                      <h3 className="font-semibold text-[#e2e8f0] self-center">{title}</h3>
+                      <h3 className="font-semibold text-[#f2f2f0] self-center">{title}</h3>
                     </div>
                     <div className="pl-11 space-y-2">
                       <div>
                         <span className="text-xs font-medium text-rose-400 uppercase tracking-wider">Challenge</span>
-                        <p className="text-sm text-[#94a3b8] mt-1 leading-relaxed">{problem}</p>
+                        <p className="text-sm text-[#c7c7cc] mt-1 leading-relaxed">{problem}</p>
                       </div>
                       <div>
                         <span className="text-xs font-medium text-emerald-400 uppercase tracking-wider">Solution</span>
-                        <p className="text-sm text-[#94a3b8] mt-1 leading-relaxed">{solution}</p>
+                        <p className="text-sm text-[#c7c7cc] mt-1 leading-relaxed">{solution}</p>
                       </div>
                     </div>
                   </div>
@@ -555,16 +555,16 @@ export default function MySebenarnyaCaseStudy({ isOpen, onClose }) {
             </div>
 
             {/* GitHub CTA */}
-            <div className="rounded-2xl border border-[#1e2534] bg-gradient-to-br from-rose-500/5 to-pink-600/5 p-8 text-center">
-              <h3 className="text-lg font-bold text-[#e2e8f0] mb-2">View the Source Code</h3>
-              <p className="text-sm text-[#64748b] mb-6 max-w-md mx-auto">
+            <div className="rounded-none border border-[#18181c] bg-gradient-to-br from-rose-500/5 to-pink-600/5 p-8 text-center">
+              <h3 className="text-lg font-bold text-[#f2f2f0] mb-2">View the Source Code</h3>
+              <p className="text-sm text-[#8a8a92] mb-6 max-w-md mx-auto">
                 Browse the full Laravel MVC codebase, Blade templates, and database migrations on GitHub.
               </p>
               <a
                 href="https://github.com/azizmatari/MySebenarnya"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-rose-500/20 to-pink-600/20 border border-rose-500/30 text-rose-400 font-medium text-sm hover:from-rose-500/30 hover:to-pink-600/30 hover:border-rose-500/50 transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-none bg-gradient-to-r from-rose-500/20 to-pink-600/20 border border-rose-500/30 text-rose-400 font-medium text-sm hover:from-rose-500/30 hover:to-pink-600/30 hover:border-rose-500/50 transition-all duration-200"
               >
                 <GithubIcon size={16} />
                 github.com/azizmatari/MySebenarnya

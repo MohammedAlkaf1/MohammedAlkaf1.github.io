@@ -302,7 +302,7 @@ function SectionTitle({ icon: Icon, label, color = 'text-amber-400' }) {
     <div className={`flex items-center gap-2 mb-6 ${color}`}>
       <Icon size={17} />
       <span className="text-xs font-mono uppercase tracking-widest">{label}</span>
-      <div className="flex-1 h-px bg-[#2a3347] ml-2" />
+      <div className="flex-1 h-px bg-[#232327] ml-2" />
     </div>
   )
 }
@@ -318,9 +318,9 @@ function ScreenshotCard({ shot, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-20px' }}
       transition={{ duration: 0.4, delay: index * 0.05 }}
-      className="group rounded-xl overflow-hidden border border-[#2a3347] hover:border-amber-500/40 transition-all duration-300"
+      className="group rounded-none overflow-hidden border border-[#232327] hover:border-amber-500/40 transition-all duration-300"
     >
-      <div className="aspect-[4/5] relative overflow-hidden bg-gradient-to-b from-[#0a0f1e] to-[#141a2b] flex items-center justify-center p-3">
+      <div className="aspect-[4/5] relative overflow-hidden bg-gradient-to-b from-[#18181c] to-[#141a2b] flex items-center justify-center p-3">
         {!imgError ? (
           <>
             <img
@@ -350,9 +350,9 @@ function ScreenshotCard({ shot, index }) {
         )}
         <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 pointer-events-none" />
       </div>
-      <div className="p-3 bg-[#161b27]">
-        <p className="text-sm font-semibold text-[#e2e8f0]">{shot.label}</p>
-        <p className="text-xs text-[#94a3b8] mt-0.5 leading-relaxed">{shot.desc}</p>
+      <div className="p-3 bg-[#0a0a0d]">
+        <p className="text-sm font-semibold text-[#f2f2f0]">{shot.label}</p>
+        <p className="text-xs text-[#c7c7cc] mt-0.5 leading-relaxed">{shot.desc}</p>
       </div>
     </motion.div>
   )
@@ -380,25 +380,25 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.25 }}
-          className="fixed inset-0 z-50 bg-[#080c15]/97 backdrop-blur-md overflow-y-auto"
+          className="fixed inset-0 z-50 bg-[#0a0a0d]/97 backdrop-blur-md overflow-y-auto"
         >
           {/* ── Sticky header ── */}
-          <div className="sticky top-0 z-10 bg-[#0d1117]/90 backdrop-blur-sm border-b border-[#2a3347] px-6 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-2 text-sm text-[#94a3b8]">
+          <div className="sticky top-0 z-10 bg-[#0a0a0d]/90 backdrop-blur-sm border-b border-[#232327] px-6 py-3 flex items-center justify-between">
+            <div className="flex items-center gap-2 text-sm text-[#c7c7cc]">
               <button
                 onClick={onClose}
-                className="hover:text-[#e2e8f0] transition-colors duration-200"
+                className="hover:text-[#f2f2f0] transition-colors duration-200"
               >
                 Projects
               </button>
               <ChevronRight size={14} />
               <span className="text-amber-300 font-medium">SAMS</span>
-              <span className="hidden sm:inline text-[#2a3347] mx-1">—</span>
+              <span className="hidden sm:inline text-[#232327] mx-1">—</span>
               <span className="hidden sm:inline">Case Study</span>
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-lg border border-[#2a3347] text-[#94a3b8] hover:text-[#e2e8f0] hover:border-[#4a5568] transition-all duration-200"
+              className="p-2 rounded-none border border-[#232327] text-[#c7c7cc] hover:text-[#f2f2f0] hover:border-[#313136] transition-all duration-200"
               aria-label="Close case study"
             >
               <X size={16} />
@@ -415,7 +415,7 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="mb-14"
             >
-              <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-amber-500/10 to-orange-600/10 border border-amber-500/20 p-8 md:p-12">
+              <div className="relative rounded-none overflow-hidden bg-gradient-to-br from-amber-500/10 to-orange-600/10 border border-amber-500/20 p-8 md:p-12">
                 <div
                   className="absolute inset-0 opacity-5"
                   style={{
@@ -430,16 +430,16 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
                   </span>
                   <div className="flex items-center gap-4 mb-5">
                     <span className="text-5xl select-none">💳</span>
-                    <h1 className="text-3xl md:text-4xl font-bold text-[#e2e8f0]">SAMS</h1>
+                    <h1 className="text-3xl md:text-4xl font-bold text-[#f2f2f0]">SAMS</h1>
                   </div>
-                  <p className="text-[#94a3b8] text-base md:text-lg leading-relaxed max-w-2xl mb-7">
+                  <p className="text-[#c7c7cc] text-base md:text-lg leading-relaxed max-w-2xl mb-7">
                     A cross-platform mobile app that unifies UMPSA's academic admin into one place —
                     profiles, course registration, co-curriculum, GPS attendance, and fees. My
                     contribution, the{' '}
-                    <span className="text-[#e2e8f0] font-medium">Manage Tuition Fee</span> module,
+                    <span className="text-[#f2f2f0] font-medium">Manage Tuition Fee</span> module,
                     drives real-time fee dashboards and automated payment &amp; restriction logic.
                   </p>
-                  <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-[#2a3347] bg-[#0d1117]/40 text-[#94a3b8] text-sm font-medium">
+                  <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-none border border-[#232327] bg-[#0a0a0d]/40 text-[#c7c7cc] text-sm font-medium">
                     <Lock size={15} />
                     Private academic repository · Group 14
                   </span>
@@ -456,11 +456,11 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="glass rounded-xl p-4 text-center border border-[#2a3347]"
+                    className="glass rounded-none p-4 text-center border border-[#232327]"
                   >
                     <div className="text-2xl mb-1 select-none">{stat.icon}</div>
-                    <div className="text-xl font-bold text-[#e2e8f0]">{stat.value}</div>
-                    <div className="text-xs text-[#94a3b8]">{stat.label}</div>
+                    <div className="text-xl font-bold text-[#f2f2f0]">{stat.value}</div>
+                    <div className="text-xs text-[#c7c7cc]">{stat.label}</div>
                   </div>
                 ))}
               </div>
@@ -475,14 +475,14 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
               className="mb-14"
             >
               <SectionTitle icon={Target} label="Problem Statement" color="text-red-400" />
-              <div className="glass rounded-2xl p-7 border border-[#2a3347]">
-                <p className="text-[#94a3b8] leading-relaxed">
+              <div className="glass rounded-none p-7 border border-[#232327]">
+                <p className="text-[#c7c7cc] leading-relaxed">
                   UMPSA students juggle{' '}
-                  <span className="text-[#e2e8f0] font-medium">several disconnected systems</span> —
+                  <span className="text-[#f2f2f0] font-medium">several disconnected systems</span> —
                   Open Registration for courses, an e-com portal for fees, and cred-B for
                   co-curriculum — while class attendance is still taken manually. That fragmentation
                   is{' '}
-                  <span className="text-[#e2e8f0] font-medium">
+                  <span className="text-[#f2f2f0] font-medium">
                     slow, error-prone, and confusing for new students
                   </span>
                   . SAMS replaces it with a single mobile app, and the Manage Tuition Fee module
@@ -509,10 +509,10 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.3, delay: i * 0.07 }}
-                    className="flex items-start gap-3 glass rounded-xl p-4 border border-[#2a3347]"
+                    className="flex items-start gap-3 glass rounded-none p-4 border border-[#232327]"
                   >
                     <CheckCircle2 size={15} className="text-amber-400 mt-0.5 shrink-0" />
-                    <p className="text-sm text-[#94a3b8] leading-relaxed">{obj}</p>
+                    <p className="text-sm text-[#c7c7cc] leading-relaxed">{obj}</p>
                   </motion.div>
                 ))}
               </div>
@@ -535,17 +535,17 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className="glass rounded-2xl overflow-hidden border border-[#2a3347]"
+                    className="glass rounded-none overflow-hidden border border-[#232327]"
                   >
                     <div className={`h-1.5 bg-gradient-to-r ${user.gradient}`} />
                     <div className="p-6">
                       <div className="text-3xl mb-3 select-none">{user.icon}</div>
-                      <h3 className="font-bold text-[#e2e8f0] mb-4 text-sm">{user.role}</h3>
+                      <h3 className="font-bold text-[#f2f2f0] mb-4 text-sm">{user.role}</h3>
                       <ul className="space-y-2">
                         {user.actions.map((action) => (
                           <li key={action} className="flex items-start gap-2">
-                            <ArrowRight size={11} className="text-[#4a5568] mt-1 shrink-0" />
-                            <span className="text-xs text-[#94a3b8] leading-relaxed">{action}</span>
+                            <ArrowRight size={11} className="text-[#313136] mt-1 shrink-0" />
+                            <span className="text-xs text-[#c7c7cc] leading-relaxed">{action}</span>
                           </li>
                         ))}
                       </ul>
@@ -574,18 +574,18 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: i * 0.08 }}
-                      className="glass rounded-2xl overflow-hidden border border-[#2a3347]"
+                      className="glass rounded-none overflow-hidden border border-[#232327]"
                     >
                       <div className={`h-1 bg-gradient-to-r ${mod.barColor}`} />
                       <div className="p-6">
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-3">
-                            <div className={`p-2 rounded-lg bg-[#1e2534] ${mod.iconColor}`}>
+                            <div className={`p-2 rounded-none bg-[#18181c] ${mod.iconColor}`}>
                               <Icon size={17} />
                             </div>
                             <div>
-                              <h3 className="font-bold text-[#e2e8f0] text-sm">{mod.title}</h3>
-                              <p className="text-[11px] text-[#64748b] mt-0.5">{mod.owner}</p>
+                              <h3 className="font-bold text-[#f2f2f0] text-sm">{mod.title}</h3>
+                              <p className="text-[11px] text-[#8a8a92] mt-0.5">{mod.owner}</p>
                             </div>
                           </div>
                           <span
@@ -598,7 +598,7 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
                           {mod.features.map((feat) => (
                             <li key={feat} className="flex items-start gap-2">
                               <ChevronRight size={12} className={`${mod.iconColor} mt-0.5 shrink-0`} />
-                              <span className="text-xs text-[#94a3b8] leading-relaxed">{feat}</span>
+                              <span className="text-xs text-[#c7c7cc] leading-relaxed">{feat}</span>
                             </li>
                           ))}
                         </ul>
@@ -618,9 +618,9 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
               className="mb-14"
             >
               <SectionTitle icon={Boxes} label="How I Built It — Manage Tuition Fee" color="text-amber-400" />
-              <p className="text-sm text-[#94a3b8] leading-relaxed mb-5 max-w-3xl">
+              <p className="text-sm text-[#c7c7cc] leading-relaxed mb-5 max-w-3xl">
                 The module follows a clean{' '}
-                <span className="text-[#e2e8f0] font-medium">MVC structure over Firebase</span> —
+                <span className="text-[#f2f2f0] font-medium">MVC structure over Firebase</span> —
                 the UI never touches business rules directly; everything flows through a single
                 controller that keeps the ledger consistent.
               </p>
@@ -634,21 +634,21 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: i * 0.1 }}
-                      className="glass rounded-2xl overflow-hidden border border-[#2a3347]"
+                      className="glass rounded-none overflow-hidden border border-[#232327]"
                     >
                       <div className={`h-1 bg-gradient-to-r ${q.bar}`} />
                       <div className="p-6">
                         <div className="flex items-center gap-3 mb-3">
-                          <div className={`p-2 rounded-lg bg-[#1e2534] ${q.color}`}>
+                          <div className={`p-2 rounded-none bg-[#18181c] ${q.color}`}>
                             <Icon size={17} />
                           </div>
-                          <h3 className="font-bold text-[#e2e8f0] text-sm">{q.title}</h3>
+                          <h3 className="font-bold text-[#f2f2f0] text-sm">{q.title}</h3>
                         </div>
-                        <ul className="space-y-2 border-t border-[#2a3347] pt-3">
+                        <ul className="space-y-2 border-t border-[#232327] pt-3">
                           {q.items.map((t) => (
                             <li key={t} className="flex items-start gap-2">
                               <ChevronRight size={12} className={`${q.color} mt-0.5 shrink-0`} />
-                              <span className="text-xs text-[#94a3b8] leading-relaxed">{t}</span>
+                              <span className="text-xs text-[#c7c7cc] leading-relaxed">{t}</span>
                             </li>
                           ))}
                         </ul>
@@ -668,12 +668,12 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
               className="mb-14"
             >
               <SectionTitle icon={Code2} label="Technologies Used" color="text-yellow-400" />
-              <div className="glass rounded-2xl p-6 border border-[#2a3347]">
+              <div className="glass rounded-none p-6 border border-[#232327]">
                 <div className="flex flex-wrap gap-3">
                   {TECH_STACK.map((tech) => (
                     <span
                       key={tech.name}
-                      className={`px-4 py-2 rounded-xl text-sm font-medium border ${tech.badge}`}
+                      className={`px-4 py-2 rounded-none text-sm font-medium border ${tech.badge}`}
                     >
                       {tech.name}
                     </span>
@@ -696,7 +696,7 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
                   <ScreenshotCard key={shot.label} shot={shot} index={i} />
                 ))}
               </div>
-              <p className="text-xs text-[#4a5568] text-center mt-4 font-mono">
+              <p className="text-xs text-[#313136] text-center mt-4 font-mono">
                 Mobile mockups from the Manage Tuition Fee module · UMPSA · Group 14
               </p>
             </motion.div>
@@ -710,21 +710,21 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
               className="mb-14"
             >
               <SectionTitle icon={Star} label="My Role" color="text-amber-400" />
-              <div className="glass rounded-2xl p-7 border border-amber-500/20">
+              <div className="glass rounded-none p-7 border border-amber-500/20">
                 <div className="flex flex-wrap items-start gap-4 mb-5">
                   <span className="text-3xl select-none">👨‍💻</span>
                   <div>
-                    <h3 className="font-bold text-[#e2e8f0] text-base">
+                    <h3 className="font-bold text-[#f2f2f0] text-base">
                       Module 5 — Manage Tuition Fee
                     </h3>
-                    <p className="text-xs text-[#94a3b8] mt-0.5">
+                    <p className="text-xs text-[#c7c7cc] mt-0.5">
                       Student ID: CB22162 · Software Engineering Practices · Group 14
                     </p>
                   </div>
                 </div>
-                <p className="text-sm text-[#94a3b8] leading-relaxed mb-5">
+                <p className="text-sm text-[#c7c7cc] leading-relaxed mb-5">
                   I owned the{' '}
-                  <span className="text-[#e2e8f0] font-medium">Manage Tuition Fee</span> module
+                  <span className="text-[#f2f2f0] font-medium">Manage Tuition Fee</span> module
                   end-to-end — the student and Treasury experiences, the payment and restriction
                   logic behind them, and the SRS/SDD documentation that specifies it.
                 </p>
@@ -732,7 +732,7 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
                   {MY_MODULE_SUBS.map((item) => (
                     <div key={item} className="flex items-start gap-2">
                       <CheckCircle2 size={13} className="text-amber-400 mt-0.5 shrink-0" />
-                      <span className="text-xs text-[#94a3b8] leading-relaxed">{item}</span>
+                      <span className="text-xs text-[#c7c7cc] leading-relaxed">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -758,15 +758,15 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: i * 0.08 }}
-                      className="glass rounded-xl p-6 border border-[#2a3347]"
+                      className="glass rounded-none p-6 border border-[#232327]"
                     >
                       <div className="flex items-start gap-4">
-                        <div className={`p-2 rounded-lg bg-[#1e2534] ${item.color} shrink-0 mt-0.5`}>
+                        <div className={`p-2 rounded-none bg-[#18181c] ${item.color} shrink-0 mt-0.5`}>
                           <Icon size={15} />
                         </div>
                         <div>
-                          <h4 className="font-semibold text-[#e2e8f0] mb-2 text-sm">{item.title}</h4>
-                          <p className="text-xs text-[#94a3b8] leading-relaxed">{item.solution}</p>
+                          <h4 className="font-semibold text-[#f2f2f0] mb-2 text-sm">{item.title}</h4>
+                          <p className="text-xs text-[#c7c7cc] leading-relaxed">{item.solution}</p>
                         </div>
                       </div>
                     </motion.div>
@@ -792,7 +792,7 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.25, delay: i * 0.04 }}
-                    className="px-3.5 py-1.5 rounded-lg text-sm font-medium bg-[#161b27] border border-[#2a3347] text-[#94a3b8] hover:text-amber-300 hover:border-amber-400/30 transition-colors duration-200 cursor-default"
+                    className="px-3.5 py-1.5 rounded-none text-sm font-medium bg-[#0a0a0d] border border-[#232327] text-[#c7c7cc] hover:text-amber-300 hover:border-amber-400/30 transition-colors duration-200 cursor-default"
                   >
                     {skill}
                   </motion.span>
@@ -807,15 +807,15 @@ export default function SAMSCaseStudy({ isOpen, onClose }) {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <div className="glass rounded-2xl p-8 border border-amber-500/20 text-center">
-                <p className="text-sm text-[#94a3b8] mb-5">
+              <div className="glass rounded-none p-8 border border-amber-500/20 text-center">
+                <p className="text-sm text-[#c7c7cc] mb-5">
                   A group mobile-engineering project at UMPSA. The repository is private, but the
                   module design, screens, and logic are summarized above.
                 </p>
                 <div className="flex flex-wrap gap-4 justify-center">
                   <button
                     onClick={onClose}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[#2a3347] text-[#94a3b8] font-medium text-sm hover:text-[#e2e8f0] hover:border-[#4a5568] transition-all duration-200"
+                    className="inline-flex items-center gap-2 px-6 py-3 rounded-none border border-[#232327] text-[#c7c7cc] font-medium text-sm hover:text-[#f2f2f0] hover:border-[#313136] transition-all duration-200"
                   >
                     <X size={14} />
                     Close
